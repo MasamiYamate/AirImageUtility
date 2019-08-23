@@ -72,10 +72,10 @@ class AIUHttpRequest {
     
     func asyncPost (_ reqPath: String , reqJsonParm: Data? , callback: ((Data? , URLResponse? , Error?) -> Void)?) {
         if !isNetworkActive(reqPath) {
-            callback?(nil , nil , nil)
+            callback?(nil , nil , AIUHttpRequestError.netWorkError)
         }
         guard let requestUrl: URL = URL(string: reqPath) else {
-            callback?(nil , nil , nil)
+            callback?(nil , nil , AIUHttpRequestError.urlError)
             return
         }
         var urlRequest: URLRequest = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60.0)
