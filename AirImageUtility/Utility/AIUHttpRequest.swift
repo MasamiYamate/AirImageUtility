@@ -15,12 +15,14 @@ class AIUHttpRequest {
         case netWorkError
         case urlError
         case dataNotFound
+        case parseError
+        case badRequest
     }
     
-    func syncGet (_ reqPath: String) -> (Data? , URLResponse? , Error?) {
+    func syncGet (with reqPath: String) -> (Data? , URLResponse? , Error?) {
         var result: (Data? , URLResponse? , Error?) = (nil , nil , AIUHttpRequestError.dataNotFound)
         let semaphore = DispatchSemaphore.init(value: 0)
-        asyncGet(reqPath, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+        asyncGet(with: reqPath, callback: {(data: Data?, res: URLResponse?, err: Error?) in
             result = (data, res, err)
             semaphore.signal()
         })
@@ -28,7 +30,7 @@ class AIUHttpRequest {
         return result
     }
     
-    func asyncGet (_ reqPath: String , callback: ((Data? , URLResponse? , Error?) -> Void)?) {
+    func asyncGet (with reqPath: String , callback: ((Data? , URLResponse? , Error?) -> Void)?) {
         if !isNetworkActive(reqPath) {
             callback?(nil , nil , AIUHttpRequestError.netWorkError)
             return
@@ -47,7 +49,7 @@ class AIUHttpRequest {
         task.resume()
     }
     
-    func syncPost (_ reqPath: String , reqParm: [String:Any]) -> (data: Data?, res: URLResponse?, err: Error?) {
+    func syncPost (with reqPath: String , reqParm: [String:Any]) -> (data: Data?, res: URLResponse?, err: Error?) {
         let jsonData: Data? = try? JSONSerialization.data(withJSONObject: reqParm, options: [])
         return syncPost(reqPath, reqJsonParm: jsonData)
     }
@@ -55,7 +57,7 @@ class AIUHttpRequest {
     func syncPost (_ reqPath: String , reqJsonParm: Data?) -> (data: Data?, res: URLResponse?, err: Error?) {
         var result: (Data? , URLResponse? , Error?) = (nil , nil , AIUHttpRequestError.dataNotFound)
         let semaphore = DispatchSemaphore.init(value: 0)
-        asyncPost(reqPath, reqJsonParm: reqJsonParm, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+        asyncPost(with: reqPath, reqJsonParm: reqJsonParm, callback: {(data: Data?, res: URLResponse?, err: Error?) in
             result = (data, res, err)
             semaphore.signal()
         })
@@ -63,14 +65,14 @@ class AIUHttpRequest {
         return result
     }
     
-    func asyncPost (_ reqPath: String , reqParm: [String:Any] , callback: ((Data? , URLResponse? , Error?) -> Void)?){
+    func asyncPost (with reqPath: String , reqParm: [String:Any] , callback: ((Data? , URLResponse? , Error?) -> Void)?){
         let jsonData: Data? = try? JSONSerialization.data(withJSONObject: reqParm, options: .prettyPrinted)
-        asyncPost(reqPath, reqJsonParm: jsonData, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+        asyncPost(with: reqPath, reqJsonParm: jsonData, callback: {(data: Data?, res: URLResponse?, err: Error?) in
             callback?(data , res , err)
         })
     }
     
-    func asyncPost (_ reqPath: String , reqJsonParm: Data? , callback: ((Data? , URLResponse? , Error?) -> Void)?) {
+    func asyncPost (with reqPath: String , reqJsonParm: Data? , callback: ((Data? , URLResponse? , Error?) -> Void)?) {
         if !isNetworkActive(reqPath) {
             callback?(nil , nil , AIUHttpRequestError.netWorkError)
         }

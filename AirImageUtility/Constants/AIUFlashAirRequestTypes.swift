@@ -87,8 +87,8 @@ class AIUFlashAirRequestTypes {
         }
     }
     
-    enum ThumbnailCgi: String {
-        case get = ""
+    enum ThumbnailCgi {
+        case get
         
         func url (imagePath: String) -> String {
             return String(format: "%@%@%@", arguments: [

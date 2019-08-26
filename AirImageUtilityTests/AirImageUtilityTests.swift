@@ -20,6 +20,13 @@ class AirImageUtilityTests: XCTestCase {
     }
 
     func testExample() {
+        let request = AIUFlashAirCommandRequest.AIUFirmwareVersionInfo()
+        let semaphore = DispatchSemaphore(value: 0)
+        request.request(callback: {(res:String? , err: Error?) in
+            print(res)
+            semaphore.signal()
+        })
+        semaphore.wait()
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
