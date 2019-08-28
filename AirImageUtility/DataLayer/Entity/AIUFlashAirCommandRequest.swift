@@ -17,7 +17,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         var parameter: String
         
@@ -51,7 +51,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: Int?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         var parameter: String
         
@@ -84,7 +84,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: Int?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: Int?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.updateInfo.url()
@@ -115,7 +115,7 @@ class AIUFlashAirCommandRequest {
 
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.ssid.url()
@@ -145,7 +145,7 @@ class AIUFlashAirCommandRequest {
 
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.networkPassword.url()
@@ -175,7 +175,7 @@ class AIUFlashAirCommandRequest {
 
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.macAddress.url()
@@ -205,7 +205,7 @@ class AIUFlashAirCommandRequest {
 
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.browserLanguage.url()
@@ -235,7 +235,7 @@ class AIUFlashAirCommandRequest {
 
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.firmwareVersionInfo.url()
@@ -265,7 +265,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.controlImage.url()
@@ -295,7 +295,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.wifiMode.url()
@@ -325,7 +325,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.wifiTimeOutTime.url()
@@ -355,7 +355,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.applicationInfo.url()
@@ -385,7 +385,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.cid.url()
@@ -415,7 +415,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.updateInfoByTimeStamp.url()
@@ -445,7 +445,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.blancSectorCount.url()
@@ -475,7 +475,7 @@ class AIUFlashAirCommandRequest {
         
         typealias Response = (res: String?, err: Error?)
         
-        let httpRequest = AIUHttpRequest()
+        private let httpRequest = AIUHttpRequest()
         
         func request(callback: (((res: String?, err: Error?)) -> Void)?) {
             let requestUrl = AIUFlashAirRequestTypes.CommandCgi.enablePhotoShareMode.url()
@@ -505,4 +505,99 @@ class AIUFlashAirCommandRequest {
         
     }
 
+    /// フォトシェアモードを無効にします
+    struct AIUDisablePhotoShareMode: AIUFlashAirDataRequestProtocol {
+        
+        typealias Response = (res: String?, err: Error?)
+        
+        private let httpRequest = AIUHttpRequest()
+        
+        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.disablePhotoShareMode.url()
+            
+            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                if let err = err {
+                    callback?((res: nil, err: err))
+                    return
+                }
+                
+                guard
+                    let data = data,
+                    let response = String(data: data, encoding: .utf8) else {
+                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                        callback?((res: nil, err: parseErr))
+                        return
+                }
+                if response == "400 Bad Request" {
+                    let badRequest = AIUHttpRequest.AIUHttpRequestError.badRequest
+                    callback?((res: nil, err: badRequest))
+                    return
+                }
+                
+                callback?((res: response, err: nil))
+            })
+        }
+        
+    }
+    
+    /// フォトシェアモードのステータスを取得します
+    struct AIUStatusPhotoShareMode: AIUFlashAirDataRequestProtocol {
+        
+        typealias Response = (res: String?, err: Error?)
+        
+        private let httpRequest = AIUHttpRequest()
+        
+        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.statusPhotoShareMode.url()
+            
+            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                if let err = err {
+                    callback?((res: nil, err: err))
+                    return
+                }
+                
+                guard
+                    let data = data,
+                    let response = String(data: data, encoding: .utf8) else {
+                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                        callback?((res: nil, err: parseErr))
+                        return
+                }
+                
+                callback?((res: response, err: nil))
+            })
+        }
+        
+    }
+    
+    /// フォトシェアモード専用のSSIDを取得します
+    struct AIUSsidPhotoShareMode: AIUFlashAirDataRequestProtocol {
+        
+        typealias Response = (res: String?, err: Error?)
+        
+        private let httpRequest = AIUHttpRequest()
+        
+        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.ssidPhotoShareMode.url()
+            
+            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                if let err = err {
+                    callback?((res: nil, err: err))
+                    return
+                }
+                
+                guard
+                    let data = data,
+                    let response = String(data: data, encoding: .utf8) else {
+                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                        callback?((res: nil, err: parseErr))
+                        return
+                }
+                
+                callback?((res: response, err: nil))
+            })
+        }
+        
+    }
+    
 }

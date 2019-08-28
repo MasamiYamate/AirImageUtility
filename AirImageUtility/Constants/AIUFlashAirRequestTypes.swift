@@ -72,7 +72,7 @@ class AIUFlashAirRequestTypes {
                 ])
         }
         
-        static func url (parms: [AIUFlashAirRequestTypes.ConfigCgi]) -> String {
+        static func url (parms: [String]) -> String {
             var requestUrl = String(format: "%@%@", arguments: [
                 AIUFlashAirRequestTypes.baseUrl,
                 AIUFlashAirRequestTypes.config
@@ -80,7 +80,7 @@ class AIUFlashAirRequestTypes {
             parms.forEach {
                 requestUrl = String(format: "%@&%@", arguments: [
                     requestUrl,
-                    $0.rawValue
+                    $0
                     ])
             }
             return requestUrl
