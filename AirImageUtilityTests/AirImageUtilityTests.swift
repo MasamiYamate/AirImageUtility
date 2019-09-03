@@ -20,13 +20,8 @@ class AirImageUtilityTests: XCTestCase {
     }
 
     func testExample() {
-        let request = AIUFlashAirCommandRequest.AIUFirmwareVersionInfo()
-        let semaphore = DispatchSemaphore(value: 0)
-        request.request(callback: {(res:String? , err: Error?) in
-            print(res)
-            semaphore.signal()
-        })
-        semaphore.wait()
+        let value = "/DCIM,100__TSB,0,16,9944,129\n/DCIM,0126_1.jpg,70408,32,17071,28040"
+        AIUFilePathDataModelTranslator().translate(with: value)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
