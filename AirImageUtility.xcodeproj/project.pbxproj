@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017F4F3231F79B4000145D1 /* AIUBitRange.swift */; };
 		D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022A3B8231790B300D27F3A /* AIUBitUtility.swift */; };
 		D0C32D432310211900E907D9 /* AirImageUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C32D392310211800E907D9 /* AirImageUtility.framework */; };
 		D0C32D482310211900E907D9 /* AirImageUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D472310211900E907D9 /* AirImageUtilityTests.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D017F4F3231F79B4000145D1 /* AIUBitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitRange.swift; sourceTree = "<group>"; };
 		D022A3B8231790B300D27F3A /* AIUBitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitUtility.swift; sourceTree = "<group>"; };
 		D0C32D392310211800E907D9 /* AirImageUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirImageUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C32D3C2310211900E907D9 /* AirImageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirImageUtility.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				D0C32D582310297E00E907D9 /* AIUConstants.swift */,
 				D0C32D5A23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift */,
+				D017F4F3231F79B4000145D1 /* AIUBitRange.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				D0C32D592310297E00E907D9 /* AIUConstants.swift in Sources */,
 				D0C32D5B23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift in Sources */,
 				D0EEF2E52316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift in Sources */,
+				D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */,
 				D0EEF2EA2316C8B400101C23 /* AIUFilePathDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

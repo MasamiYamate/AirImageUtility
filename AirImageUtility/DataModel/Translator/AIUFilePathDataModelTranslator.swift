@@ -110,25 +110,30 @@ class AIUFilePathDataModelTranslator {
         
         // MARK: 各要素のパターン抽出
         guard
-            let yearPattern = AIUBitUtility.specificBitPattern(start: 9, end: 15, bit: dateBitValue),
-            let monthPattern = AIUBitUtility.specificBitPattern(start: 5, end: 8, bit: dateBitValue),
-            let dayPattern = AIUBitUtility.specificBitPattern(start: 0, end: 4, bit: dateBitValue),
-            let hourPattern = AIUBitUtility.specificBitPattern(start: 11, end: 15, bit: timeBitValue),
-            let minPattern = AIUBitUtility.specificBitPattern(start: 5, end: 10, bit: timeBitValue),
-            let secPattern = AIUBitUtility.specificBitPattern(start: 0, end: 4, bit: timeBitValue) else {
+            let yearPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.year, bit: dateBitValue),
+            let monthPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.month, bit: dateBitValue),
+            let dayPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.day, bit: dateBitValue),
+            let hourPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.hour, bit: timeBitValue),
+            let minPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.min, bit: timeBitValue),
+            let secPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.sec, bit: timeBitValue) else {
                 return nil
         }
         
         // MARK: 各要素のValueを算出する
         guard
-            let year = Int(yearPattern, radix: 2),
+            let yearRaw = Int(yearPattern, radix: 2),
             let month = Int(monthPattern, radix: 2),
             let day = Int(dayPattern, radix: 2),
             let hour = Int(hourPattern, radix: 2),
             let min = Int(minPattern, radix: 2),
-            let sec = Int(secPattern, radix: 2) else {
+            let secRaw = Int(secPattern, radix: 2) else {
                 return nil
         }
+        
+        // FlashAirの返却値そのままでは通常の年数にならないので補正する
+        let year = AIUConstants.baseYear + yearRaw
+        let sec = secRaw / 2
+        
         
         return nil
     }

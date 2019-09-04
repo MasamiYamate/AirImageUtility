@@ -21,8 +21,10 @@ class AIUBitUtility {
         return false
     }
     
-    static func specificBitPattern (start: Int, end: Int, bit: Int) -> String? {
+    static func specificBitPattern (with bitRange: AIUBitRange, bit: Int) -> String? {
         var pattern = bitPattern(with: bit)
+        let start = bitRange.start
+        let end = bitRange.end
 
         if start < 0 {
             return nil
