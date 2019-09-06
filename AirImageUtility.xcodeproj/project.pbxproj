@@ -22,6 +22,7 @@
 		D0EEF2E82316C84A00101C23 /* AIUFileListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */; };
 		D0EEF2EA2316C8B400101C23 /* AIUFilePathDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E92316C8B400101C23 /* AIUFilePathDataModel.swift */; };
 		D0EEF2EE2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2ED2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift */; };
+		D0F59E0E232292480078C2CE /* AIUFileCountDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E0D232292480078C2CE /* AIUFileCountDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileListDataStore.swift; sourceTree = "<group>"; };
 		D0EEF2E92316C8B400101C23 /* AIUFilePathDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFilePathDataModel.swift; sourceTree = "<group>"; };
 		D0EEF2ED2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFilePathDataModelTranslator.swift; sourceTree = "<group>"; };
+		D0F59E0D232292480078C2CE /* AIUFileCountDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileCountDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */,
+				D0F59E0D232292480078C2CE /* AIUFileCountDataStore.swift */,
 			);
 			path = Command;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				D0EEF2EE2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift in Sources */,
 				D0EEF2E82316C84A00101C23 /* AIUFileListDataStore.swift in Sources */,
 				D0C32D56231023D900E907D9 /* AIUHttpRequest.swift in Sources */,
+				D0F59E0E232292480078C2CE /* AIUFileCountDataStore.swift in Sources */,
 				D0C32D612312C73400E907D9 /* AIUFlashAirCommandRequest.swift in Sources */,
 				D0C32D5E2312C45000E907D9 /* AIUFlashAirDataRequestProtocol.swift in Sources */,
 				D0D337E523142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift in Sources */,

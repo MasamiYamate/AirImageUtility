@@ -16,7 +16,12 @@ struct AIUFileListDataStore {
         let searchQuery: String = searchPath ?? "/"
         let fileList = AIUFlashAirCommandRequest.AIUFileList(parameter: searchQuery)
         fileList.request(callback: {(res: String? , err: Error?) in
-            let a = AIUFilePathDataModelTranslator().translate(with: res!)
+            if err != nil {
+                callback?((res: nil, err: err))
+                return
+            }
+            let response = AIUFilePathDataModelTranslator().translate(with: res!)
+            callback?((res: response, err: err))
         })
     }
     
