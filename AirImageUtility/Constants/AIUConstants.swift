@@ -17,8 +17,8 @@ class AIUConstants {
     // MARK: bitPatternのTuple
     struct bitRanges {
         static let year = AIUBitRange(start: 9, end: 15)
-        static let month = AIUBitRange(start: 5, end: 8)
-        static let day = AIUBitRange(start: 0, end: 4)
+        static let month = AIUBitRange(start: 5, end: 9)
+        static let day = AIUBitRange(start: 0, end: 5)
         static let hour = AIUBitRange(start: 11, end: 15)
         static let min = AIUBitRange(start: 5, end: 10)
         static let sec = AIUBitRange(start: 0, end: 4)

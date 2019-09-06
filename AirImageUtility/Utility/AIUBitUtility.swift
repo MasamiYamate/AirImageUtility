@@ -26,20 +26,11 @@ class AIUBitUtility {
         let start = bitRange.start
         let end = bitRange.end
 
-        if start < 0 {
-            return nil
-        }
-        if (pattern.count - 1) <= end {
-            for _ in 0...(end - pattern.count) {
-                pattern.append(0)
-            }
-        }
-        pattern = pattern.reversed()
         var result: String = ""
-        for i in start...end {
+        for i in start..<end {
             result += String(format: "%d", arguments: [pattern[i]])
         }
-        return result
+        return String(result.reversed())
     }
     
     /// bitPatternを抽出します

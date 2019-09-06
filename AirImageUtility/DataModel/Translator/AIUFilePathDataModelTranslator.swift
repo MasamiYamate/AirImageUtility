@@ -104,7 +104,7 @@ class AIUFilePathDataModelTranslator {
             value.indices.contains(4),
             value.indices.contains(5),
             let dateBitValue = Int(value[4]),
-            let timeBitValue = Int(value[5])else {
+            let timeBitValue = Int(value[5]) else {
                 return nil
         }
         
@@ -134,8 +134,13 @@ class AIUFilePathDataModelTranslator {
         let year = AIUConstants.baseYear + yearRaw
         let sec = secRaw / 2
         
+        let stringDate = String(format: "%d-%d-%d-%d:%d:%d", arguments: [year,month,day,hour,min,sec])
         
-        return nil
+        let format = "yyyy-MM-dd-HH:mm:ss"
+        let formater = DateFormatter()
+        formater.dateFormat = format
+        
+        return formater.date(from: stringDate)
     }
     
 }
