@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017F4F3231F79B4000145D1 /* AIUBitRange.swift */; };
 		D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022A3B8231790B300D27F3A /* AIUBitUtility.swift */; };
+		D09C4ADB23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4ADA23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift */; };
+		D09C4ADD23268D52006F3500 /* AIUBlancSectorCountDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4ADC23268D52006F3500 /* AIUBlancSectorCountDataStore.swift */; };
+		D09C4ADF23268F25006F3500 /* AIUBlancSectorCountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4ADE23268F25006F3500 /* AIUBlancSectorCountDataModel.swift */; };
+		D09C4AE1232690D9006F3500 /* AIUBlancSectorCountDataModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4AE0232690D9006F3500 /* AIUBlancSectorCountDataModelTranslator.swift */; };
 		D0C32D432310211900E907D9 /* AirImageUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C32D392310211800E907D9 /* AirImageUtility.framework */; };
 		D0C32D482310211900E907D9 /* AirImageUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D472310211900E907D9 /* AirImageUtilityTests.swift */; };
 		D0C32D4A2310211900E907D9 /* AirImageUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C32D3C2310211900E907D9 /* AirImageUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,6 +53,10 @@
 /* Begin PBXFileReference section */
 		D017F4F3231F79B4000145D1 /* AIUBitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitRange.swift; sourceTree = "<group>"; };
 		D022A3B8231790B300D27F3A /* AIUBitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitUtility.swift; sourceTree = "<group>"; };
+		D09C4ADA23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUUpdateInfoByTimeStampDataStore.swift; sourceTree = "<group>"; };
+		D09C4ADC23268D52006F3500 /* AIUBlancSectorCountDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBlancSectorCountDataStore.swift; sourceTree = "<group>"; };
+		D09C4ADE23268F25006F3500 /* AIUBlancSectorCountDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBlancSectorCountDataModel.swift; sourceTree = "<group>"; };
+		D09C4AE0232690D9006F3500 /* AIUBlancSectorCountDataModelTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBlancSectorCountDataModelTranslator.swift; sourceTree = "<group>"; };
 		D0C32D392310211800E907D9 /* AirImageUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirImageUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C32D3C2310211900E907D9 /* AirImageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirImageUtility.h; sourceTree = "<group>"; };
 		D0C32D3D2310211900E907D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 			children = (
 				D0EEF2EC2316CC0100101C23 /* Translator */,
 				D0EEF2E92316C8B400101C23 /* AIUFilePathDataModel.swift */,
+				D09C4ADE23268F25006F3500 /* AIUBlancSectorCountDataModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -202,6 +211,8 @@
 				D0F59E1F23268A850078C2CE /* AIUWifiTimeoutDataStore.swift */,
 				D0F59E2123268AEB0078C2CE /* AIUApplicationInfoDataStore.swift */,
 				D0F59E2323268B430078C2CE /* AIUCidDataStore.swift */,
+				D09C4ADA23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift */,
+				D09C4ADC23268D52006F3500 /* AIUBlancSectorCountDataStore.swift */,
 			);
 			path = Command;
 			sourceTree = "<group>";
@@ -210,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				D0EEF2ED2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift */,
+				D09C4AE0232690D9006F3500 /* AIUBlancSectorCountDataModelTranslator.swift */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -335,11 +347,15 @@
 				D0F59E18232685800078C2CE /* AIUBrowserLanguageDataStore.swift in Sources */,
 				D0C32D5E2312C45000E907D9 /* AIUFlashAirDataRequestProtocol.swift in Sources */,
 				D0D337E523142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift in Sources */,
+				D09C4AE1232690D9006F3500 /* AIUBlancSectorCountDataModelTranslator.swift in Sources */,
 				D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */,
+				D09C4ADB23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift in Sources */,
+				D09C4ADD23268D52006F3500 /* AIUBlancSectorCountDataStore.swift in Sources */,
 				D0C32D592310297E00E907D9 /* AIUConstants.swift in Sources */,
 				D0C32D5B23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift in Sources */,
 				D0F59E1E23268A1C0078C2CE /* AIUWifiModeDataStore.swift in Sources */,
 				D0EEF2E52316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift in Sources */,
+				D09C4ADF23268F25006F3500 /* AIUBlancSectorCountDataModel.swift in Sources */,
 				D0F59E2023268A850078C2CE /* AIUWifiTimeoutDataStore.swift in Sources */,
 				D0F59E122326825F0078C2CE /* AIUSsidDataStore.swift in Sources */,
 				D0F59E16232684C40078C2CE /* AIUMacAddressDataStore.swift in Sources */,
