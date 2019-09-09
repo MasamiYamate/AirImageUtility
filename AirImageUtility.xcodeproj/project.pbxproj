@@ -23,6 +23,17 @@
 		D0EEF2EA2316C8B400101C23 /* AIUFilePathDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E92316C8B400101C23 /* AIUFilePathDataModel.swift */; };
 		D0EEF2EE2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2ED2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift */; };
 		D0F59E0E232292480078C2CE /* AIUFileCountDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E0D232292480078C2CE /* AIUFileCountDataStore.swift */; };
+		D0F59E10232681DA0078C2CE /* AIUUpdateInfoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E0F232681DA0078C2CE /* AIUUpdateInfoDataStore.swift */; };
+		D0F59E122326825F0078C2CE /* AIUSsidDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E112326825F0078C2CE /* AIUSsidDataStore.swift */; };
+		D0F59E14232683320078C2CE /* AIUNetworkPasswordDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E13232683320078C2CE /* AIUNetworkPasswordDataStore.swift */; };
+		D0F59E16232684C40078C2CE /* AIUMacAddressDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E15232684C40078C2CE /* AIUMacAddressDataStore.swift */; };
+		D0F59E18232685800078C2CE /* AIUBrowserLanguageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E17232685800078C2CE /* AIUBrowserLanguageDataStore.swift */; };
+		D0F59E1A232685DB0078C2CE /* AIUFirmwareVersionInfoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E19232685DB0078C2CE /* AIUFirmwareVersionInfoDataStore.swift */; };
+		D0F59E1C232686780078C2CE /* AIUControlImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E1B232686780078C2CE /* AIUControlImageDataStore.swift */; };
+		D0F59E1E23268A1C0078C2CE /* AIUWifiModeDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E1D23268A1C0078C2CE /* AIUWifiModeDataStore.swift */; };
+		D0F59E2023268A850078C2CE /* AIUWifiTimeoutDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E1F23268A850078C2CE /* AIUWifiTimeoutDataStore.swift */; };
+		D0F59E2223268AEB0078C2CE /* AIUApplicationInfoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E2123268AEB0078C2CE /* AIUApplicationInfoDataStore.swift */; };
+		D0F59E2423268B430078C2CE /* AIUCidDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E2323268B430078C2CE /* AIUCidDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +66,17 @@
 		D0EEF2E92316C8B400101C23 /* AIUFilePathDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFilePathDataModel.swift; sourceTree = "<group>"; };
 		D0EEF2ED2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFilePathDataModelTranslator.swift; sourceTree = "<group>"; };
 		D0F59E0D232292480078C2CE /* AIUFileCountDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileCountDataStore.swift; sourceTree = "<group>"; };
+		D0F59E0F232681DA0078C2CE /* AIUUpdateInfoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUUpdateInfoDataStore.swift; sourceTree = "<group>"; };
+		D0F59E112326825F0078C2CE /* AIUSsidDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUSsidDataStore.swift; sourceTree = "<group>"; };
+		D0F59E13232683320078C2CE /* AIUNetworkPasswordDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUNetworkPasswordDataStore.swift; sourceTree = "<group>"; };
+		D0F59E15232684C40078C2CE /* AIUMacAddressDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUMacAddressDataStore.swift; sourceTree = "<group>"; };
+		D0F59E17232685800078C2CE /* AIUBrowserLanguageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBrowserLanguageDataStore.swift; sourceTree = "<group>"; };
+		D0F59E19232685DB0078C2CE /* AIUFirmwareVersionInfoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFirmwareVersionInfoDataStore.swift; sourceTree = "<group>"; };
+		D0F59E1B232686780078C2CE /* AIUControlImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUControlImageDataStore.swift; sourceTree = "<group>"; };
+		D0F59E1D23268A1C0078C2CE /* AIUWifiModeDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUWifiModeDataStore.swift; sourceTree = "<group>"; };
+		D0F59E1F23268A850078C2CE /* AIUWifiTimeoutDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUWifiTimeoutDataStore.swift; sourceTree = "<group>"; };
+		D0F59E2123268AEB0078C2CE /* AIUApplicationInfoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUApplicationInfoDataStore.swift; sourceTree = "<group>"; };
+		D0F59E2323268B430078C2CE /* AIUCidDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUCidDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +191,17 @@
 			children = (
 				D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */,
 				D0F59E0D232292480078C2CE /* AIUFileCountDataStore.swift */,
+				D0F59E0F232681DA0078C2CE /* AIUUpdateInfoDataStore.swift */,
+				D0F59E112326825F0078C2CE /* AIUSsidDataStore.swift */,
+				D0F59E13232683320078C2CE /* AIUNetworkPasswordDataStore.swift */,
+				D0F59E15232684C40078C2CE /* AIUMacAddressDataStore.swift */,
+				D0F59E17232685800078C2CE /* AIUBrowserLanguageDataStore.swift */,
+				D0F59E19232685DB0078C2CE /* AIUFirmwareVersionInfoDataStore.swift */,
+				D0F59E1B232686780078C2CE /* AIUControlImageDataStore.swift */,
+				D0F59E1D23268A1C0078C2CE /* AIUWifiModeDataStore.swift */,
+				D0F59E1F23268A850078C2CE /* AIUWifiTimeoutDataStore.swift */,
+				D0F59E2123268AEB0078C2CE /* AIUApplicationInfoDataStore.swift */,
+				D0F59E2323268B430078C2CE /* AIUCidDataStore.swift */,
 			);
 			path = Command;
 			sourceTree = "<group>";
@@ -292,15 +325,26 @@
 			files = (
 				D0EEF2EE2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift in Sources */,
 				D0EEF2E82316C84A00101C23 /* AIUFileListDataStore.swift in Sources */,
+				D0F59E1A232685DB0078C2CE /* AIUFirmwareVersionInfoDataStore.swift in Sources */,
+				D0F59E10232681DA0078C2CE /* AIUUpdateInfoDataStore.swift in Sources */,
 				D0C32D56231023D900E907D9 /* AIUHttpRequest.swift in Sources */,
 				D0F59E0E232292480078C2CE /* AIUFileCountDataStore.swift in Sources */,
+				D0F59E2423268B430078C2CE /* AIUCidDataStore.swift in Sources */,
 				D0C32D612312C73400E907D9 /* AIUFlashAirCommandRequest.swift in Sources */,
+				D0F59E1C232686780078C2CE /* AIUControlImageDataStore.swift in Sources */,
+				D0F59E18232685800078C2CE /* AIUBrowserLanguageDataStore.swift in Sources */,
 				D0C32D5E2312C45000E907D9 /* AIUFlashAirDataRequestProtocol.swift in Sources */,
 				D0D337E523142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift in Sources */,
 				D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */,
 				D0C32D592310297E00E907D9 /* AIUConstants.swift in Sources */,
 				D0C32D5B23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift in Sources */,
+				D0F59E1E23268A1C0078C2CE /* AIUWifiModeDataStore.swift in Sources */,
 				D0EEF2E52316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift in Sources */,
+				D0F59E2023268A850078C2CE /* AIUWifiTimeoutDataStore.swift in Sources */,
+				D0F59E122326825F0078C2CE /* AIUSsidDataStore.swift in Sources */,
+				D0F59E16232684C40078C2CE /* AIUMacAddressDataStore.swift in Sources */,
+				D0F59E14232683320078C2CE /* AIUNetworkPasswordDataStore.swift in Sources */,
+				D0F59E2223268AEB0078C2CE /* AIUApplicationInfoDataStore.swift in Sources */,
 				D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */,
 				D0EEF2EA2316C8B400101C23 /* AIUFilePathDataModel.swift in Sources */,
 			);
