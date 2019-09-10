@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUSsidDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let ssid = AIUFlashAirCommandRequest.AIUSsid()
-        ssid.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return ssid.request()
     }
     
 }
