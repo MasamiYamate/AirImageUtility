@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class AIUFlashAirCommandRequest {
     
@@ -15,31 +17,34 @@ class AIUFlashAirCommandRequest {
         
         typealias Parameter = String
         
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
         var parameter: String
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let baseUrl = AIUFlashAirRequestTypes.CommandCgi.fileList.url()
-            let requestUrl = String(format: "%@&DIR=%@", arguments: [baseUrl, parameter])
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<Response> {
+            return Observable<Response>.create { observable in
+                let baseUrl = AIUFlashAirRequestTypes.CommandCgi.fileList.url()
+                let requestUrl = String(format: "%@&DIR=%@",
+                                        arguments: [baseUrl, self.parameter])
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
-                callback?((res: response, err: nil))
-            })
+                    }
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
+            }
         }
         
     }
@@ -49,221 +54,238 @@ class AIUFlashAirCommandRequest {
         
         typealias Parameter = String
         
-        typealias Response = (res: Int?, err: Error?)
+        typealias Response = Int
         
         private let httpRequest = AIUHttpRequest()
         
         var parameter: String
         
-        func request(callback: (((res: Int?, err: Error?)) -> Void)?) {
-            let baseUrl = AIUFlashAirRequestTypes.CommandCgi.fileCount.url()
-            let requestUrl = String(format: "%@&DIR=%@", arguments: [baseUrl, parameter])
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<Int> {
+            return Observable<Int>.create { observable in
+                let baseUrl = AIUFlashAirRequestTypes.CommandCgi.fileCount.url()
+                let requestUrl = String(format: "%@&DIR=%@", arguments: [baseUrl, self.parameter])
                 
-                guard
-                    let data = data,
-                    let strCount = String(data: data, encoding: .utf8),
-                    let response = Int(strCount) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
-                callback?((res: response, err: nil))
-            })
+                    }
+                    
+                    guard
+                        let data = data,
+                        let strCount = String(data: data, encoding: .utf8),
+                        let response = Int(strCount) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
+            }
         }
-        
     }
     
     /// アップデートされているかどうかを返却します
     struct AIUUpdateInfo: AIUFlashAirDataRequestProtocol {
         
-        typealias Response = (res: Int?, err: Error?)
+        typealias Response = Int
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: Int?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.updateInfo.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
-                
-                guard
-                    let data = data,
-                    let strCount = String(data: data, encoding: .utf8),
-                    let response = Int(strCount) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+        func request() -> Observable<Int> {
+            return Observable<Int>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.updateInfo.url()
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
-                
-                callback?((res: response, err: nil))
-            })
+                    }
+                    
+                    guard
+                        let data = data,
+                        let strCount = String(data: data, encoding: .utf8),
+                        let response = Int(strCount) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
+            }
         }
-        
     }
     
     /// FlashAirのSSIDを取得する
     struct AIUSsid: AIUFlashAirDataRequestProtocol {
 
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.ssid.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<String> {
+            return Observable<String>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.ssid.url()
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
+                    }
+                    
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
                 
-                callback?((res: response, err: nil))
-            })
+            }
         }
-        
+
     }
     
     /// FlashAirのネットワークパスワードを取得する
     struct AIUNetworkPassword: AIUFlashAirDataRequestProtocol {
 
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.networkPassword.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<String> {
+            return Observable<String>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.networkPassword.url()
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
-                
-                callback?((res: response, err: nil))
-            })
+                    }
+                    
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
+            }
         }
-        
+
     }
     
     /// FlashAirのMacアドレスを取得する
     struct AIUMacAddress: AIUFlashAirDataRequestProtocol {
 
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.macAddress.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<String> {
+            return Observable<String>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.macAddress.url()
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
+                    }
+                    
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
                 
-                callback?((res: response, err: nil))
-            })
+            }
         }
-        
+
     }
     
     /// ブラウザ言語を取得する
     struct AIUBrowserLanguage: AIUFlashAirDataRequestProtocol {
 
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.browserLanguage.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<String> {
+            return Observable<String>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.browserLanguage.url()
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
+                    }
+                    
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
                 
-                callback?((res: response, err: nil))
-            })
+            }
         }
-        
+
     }
     
     /// ファームウェアバージョンを取得する
     struct AIUFirmwareVersionInfo: AIUFlashAirDataRequestProtocol {
 
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.firmwareVersionInfo.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<String> {
+            return Observable<String>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.firmwareVersionInfo.url()
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
-                
-                callback?((res: response, err: nil))
-            })
+                    }
+                    
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    observable.onNext(response)
+                    observable.onCompleted()
+                })
+            }
         }
-        
+
     }
     
     /// 制御イメージを取得します
     struct AIUControlImage: AIUFlashAirDataRequestProtocol {
         
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         

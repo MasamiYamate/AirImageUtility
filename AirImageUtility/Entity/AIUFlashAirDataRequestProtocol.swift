@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol AIUFlashAirDataRequestProtocol {
     associatedtype Response
     
-    func request (callback: ((Response) -> Void)?)
+    func request () -> Observable<Response>
     
 }
