@@ -14,19 +14,26 @@ struct AIUFileListDataStore {
     
     let searchPath: String?
     
-    func request() -> [AIUFilePathDataModel] {
+    private let disposeBag = DisposeBag()
+    
+    func request() -> Observable<[AIUFilePathDataModel]> {
         let searchQuery: String = searchPath ?? "/"
         let fileList = AIUFlashAirCommandRequest.AIUFileList(parameter: searchQuery)
-        fileList.request()
-        fileList.request(callback: {(res: String? , err: Error?) in
-            if err != nil {
-                callback?((res: nil, err: err))
-                return
-            }
-            let response = AIUFilePathDataModelTranslator().translate(with: res!)
-            
-            callback?((res: response, err: err))
-        })
+        
+        return Observable<[AIUFilePathDataModel]>.create { observable in
+            let fileListObservable = fileList.request()
+            fileListObservable.subscribe(onNext: { res in
+                let models = AIUFilePathDataModelTranslator().translate(with: res)
+                observable.onNext(models)
+                observable.onCompleted()
+            }, onError: { err in
+                observable.onError(err)
+            }, onCompleted: {
+                observable.onCompleted()
+            }).disposed(by: self.disposeBag)
+            return Disposables.create()
+        }
+        
     }
     
 }

@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUSsidPhotoShareModeDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let ssidPhotoShareMode = AIUFlashAirCommandRequest.AIUSsidPhotoShareMode()
-        ssidPhotoShareMode.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return ssidPhotoShareMode.request()
     }
     
 }

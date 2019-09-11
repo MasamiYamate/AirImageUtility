@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUWifiModeDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let wifiMode = AIUFlashAirCommandRequest.AIUWifiMode()
-        wifiMode.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return wifiMode.request()
     }
     
 }

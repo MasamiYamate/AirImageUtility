@@ -7,30 +7,35 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUFlashAirThumbnailRequest: AIUFlashAirDataRequestProtocol {
-    typealias Response = (data: Data?, res: URLResponse?, err: Error?)
+    typealias Response = Data
     
     private let httpRequest = AIUHttpRequest()
     
     var parameter: String
     
-    func request(callback: (((data: Data?, res: URLResponse?, err: Error?)) -> Void)?) {
-        let requestUrl = AIUFlashAirRequestTypes.ThumbnailCgi.get.url(imagePath: parameter)
-        
-        httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-            if let err = err {
-                callback?((data: nil, res: nil, err: err))
-                return
-            }
-            
-            guard let data = data else {
-                let dataErr = AIUHttpRequest.AIUHttpRequestError.dataNotFound
-                callback?((data: nil, res: nil, err: dataErr))
-                return
-            }
-            callback?((data: data, res: res, err: err))
-        })
+    func request() -> Observable<Data> {
+        return Observable<Data>.create { observable in
+            let requestUrl = AIUFlashAirRequestTypes.ThumbnailCgi.get.url(imagePath: self.parameter)
+
+            self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                if let err = err {
+                    observable.onError(err)
+                    return
+                }
+
+                guard let data = data else {
+                    let dataErr = AIUHttpRequest.AIUHttpRequestError.dataNotFound
+                    observable.onError(dataErr)
+                    return
+                }
+                observable.onNext(data)
+                observable.onCompleted()
+            })
+        }
     }
     
 }

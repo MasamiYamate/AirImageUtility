@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUFirmwareVersionInfoDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String>  {
         let firmwareVersion = AIUFlashAirCommandRequest.AIUFirmwareVersionInfo()
-        firmwareVersion.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return firmwareVersion.request()
     }
     
 }

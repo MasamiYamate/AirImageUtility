@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUApplicationInfoDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let applicationInfo = AIUFlashAirCommandRequest.AIUApplicationInfo()
-        applicationInfo.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return applicationInfo.request()
     }
     
 }

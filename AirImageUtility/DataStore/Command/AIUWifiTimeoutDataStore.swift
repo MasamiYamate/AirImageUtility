@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUWifiTimeoutDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let timeout = AIUFlashAirCommandRequest.AIUWifiTimeout()
-        timeout.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return timeout.request()
     }
     
 }

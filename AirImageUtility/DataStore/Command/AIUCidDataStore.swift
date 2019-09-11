@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUCidDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let cid = AIUFlashAirCommandRequest.AIUCid()
-        cid.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return cid.request()
     }
     
 }

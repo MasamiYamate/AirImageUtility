@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUMacAddressDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let macAddress = AIUFlashAirCommandRequest.AIUMacAddress()
-        macAddress.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return macAddress.request()
     }
     
 }

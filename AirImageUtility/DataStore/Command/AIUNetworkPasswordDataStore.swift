@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUNetworkPasswordDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let networkPassword = AIUFlashAirCommandRequest.AIUNetworkPassword()
-        networkPassword.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return networkPassword.request()
     }
     
 }

@@ -7,17 +7,17 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUFileCountDataStore {
 
     let searchPath: String?
 
-    func request(callback: (((res: Int?, err: Error?)) -> Void)?) {
+    func request() -> Observable<Int> {
         let searchQuery: String = searchPath ?? "/"
         let fileCount = AIUFlashAirCommandRequest.AIUFileCount(parameter: searchQuery)
-        fileCount.request(callback: {(res: Int? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return fileCount.request()
     }
 
 }

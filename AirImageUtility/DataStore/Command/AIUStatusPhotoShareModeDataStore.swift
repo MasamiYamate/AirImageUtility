@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUStatusPhotoShareModeDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let statusPhotoShareMode = AIUFlashAirCommandRequest.AIUStatusPhotoShareMode()
-        statusPhotoShareMode.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return statusPhotoShareMode.request()
     }
     
 }
