@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class AIUFlashAirConfigRequest: AIUFlashAirDataRequestProtocol {
-    typealias Response = (res: String?, err: Error?)
+    typealias Response = String
     
     enum WirelessModeTypes: String {
         case apModeDisableWriteProtect = "0"
@@ -91,24 +93,26 @@ class AIUFlashAirConfigRequest: AIUFlashAirDataRequestProtocol {
     }
     
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-        let url = AIUFlashAirRequestTypes.ConfigCgi.url(parms: parameters)
-        httpRequest.asyncGet(with: url, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-            if let err = err {
-                callback?((res: nil, err: err))
-                return
-            }
-            
-            guard
-                let data = data,
-                let response = String(data: data, encoding: .utf8) else {
-                    let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                    callback?((res: nil, err: parseErr))
+    func request() -> Observable<String> {
+        return Observable<String>.create { observable in
+            let url = AIUFlashAirRequestTypes.ConfigCgi.url(parms: self.parameters)
+            self.httpRequest.asyncGet(with: url, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                if let err = err {
+                    observable.onError(err)
                     return
-            }
-            
-            callback?((res: response, err: nil))
-        })
+                }
+                
+                guard
+                    let data = data,
+                    let response = String(data: data, encoding: .utf8) else {
+                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                        observable.onError(parseErr)
+                        return
+                }
+                observable.onNext(response)
+                observable.onCompleted()
+            })
+        }
     }
     
 }

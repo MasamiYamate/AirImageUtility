@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUBrowserLanguageDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    func request() -> Observable<String> {
         let language = AIUFlashAirCommandRequest.AIUBrowserLanguage()
-        language.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return language.request()
     }
     
 }

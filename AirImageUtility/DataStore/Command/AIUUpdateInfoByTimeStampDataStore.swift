@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUUpdateInfoByTimeStampDataStore {
-    
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+
+    func request() -> Observable<String> {
         let timeStamp = AIUFlashAirCommandRequest.AIUUpdateInfoByTimeStamp()
-        timeStamp.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        return timeStamp.request()
     }
     
 }

@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUControlImageDataStore {
     
-    func request(callback: (((res: String?, err: Error?)) -> Void)?) {
+    private let disposeBag = DisposeBag()
+    
+    func request() -> Observable<String> {
         let controlImage = AIUFlashAirCommandRequest.AIUControlImage()
-        controlImage.request(callback: {(res: String? , err: Error?) in
-            callback?((res: res, err: err))
-        })
+        let controlImageObservable = controlImage.request()
+        return controlImageObservable
     }
     
 }

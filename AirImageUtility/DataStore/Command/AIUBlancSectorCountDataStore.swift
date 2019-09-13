@@ -7,27 +7,31 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AIUBlancSectorCountDataStore {
     
-    func request(callback: (((res: AIUBlancSectorCountDataModel?, err: Error?)) -> Void)?) {
-        let sectorSize = AIUFlashAirCommandRequest.AIUBlancSectorCount()
-        sectorSize.request(callback: {(res: String? , err: Error?) in
-            if let err = err {
-                callback?((res: nil, err: err))
-                return
-            }
-            guard let response = res else {
-                callback?((res: nil, err: nil))
-                return
-            }
-            do {
-                let model = try AIUBlancSectorCountDataModelTranslator().translate(with: response)
-                callback?((res: model, err: nil))
-            } catch {
-                callback?((res: nil, err: error))
-            }
-        })
+    private let disposeBag = DisposeBag()
+    
+    func request() -> Observable<AIUBlancSectorCountDataModel> {
+        return Observable<AIUBlancSectorCountDataModel>.create { observable in
+            let sectorSize = AIUFlashAirCommandRequest.AIUBlancSectorCount()
+            let sectorSizeObservable = sectorSize.request()
+            sectorSizeObservable.subscribe(onNext: { response in
+                do {
+                    let model = try AIUBlancSectorCountDataModelTranslator().translate(with: response)
+                    observable.onNext(model)
+                } catch {
+                    observable.onError(error)
+                }
+            }, onError: { err in
+                observable.onError(err)
+            }, onCompleted: {
+                observable.onCompleted()
+            }).disposed(by: self.disposeBag)
+            return Disposables.create()
+        }
     }
     
 }

@@ -483,31 +483,33 @@ class AIUFlashAirCommandRequest {
     /// Card Identifierの取得を行います
     struct AIUBlancSectorCount: AIUFlashAirDataRequestProtocol {
         
-        typealias Response = (res: String?, err: Error?)
+        typealias Response = String
         
         private let httpRequest = AIUHttpRequest()
         
-        func request(callback: (((res: String?, err: Error?)) -> Void)?) {
-            let requestUrl = AIUFlashAirRequestTypes.CommandCgi.blancSectorCount.url()
-            
-            httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
-                if let err = err {
-                    callback?((res: nil, err: err))
-                    return
-                }
+        func request() -> Observable<String> {
+            return Observable<String>.create { observable in
+                let requestUrl = AIUFlashAirRequestTypes.CommandCgi.blancSectorCount.url()
                 
-                guard
-                    let data = data,
-                    let response = String(data: data, encoding: .utf8) else {
-                        let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
-                        callback?((res: nil, err: parseErr))
+                self.httpRequest.asyncGet(with: requestUrl, callback: {(data: Data?, res: URLResponse?, err: Error?) in
+                    if let err = err {
+                        observable.onError(err)
                         return
-                }
-                
-                callback?((res: response, err: nil))
-            })
+                    }
+                    
+                    guard
+                        let data = data,
+                        let response = String(data: data, encoding: .utf8) else {
+                            let parseErr = AIUHttpRequest.AIUHttpRequestError.parseError
+                            observable.onError(parseErr)
+                            return
+                    }
+                    
+                    observable.onNext(response)
+                })
+            }
         }
-        
+ 
     }
     
     /// フォトシェアモードを有効にします

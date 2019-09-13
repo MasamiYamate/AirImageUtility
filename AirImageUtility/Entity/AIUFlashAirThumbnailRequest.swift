@@ -35,6 +35,7 @@ struct AIUFlashAirThumbnailRequest: AIUFlashAirDataRequestProtocol {
                 observable.onNext(data)
                 observable.onCompleted()
             })
+            return Disposables.create()
         }
     }
     
