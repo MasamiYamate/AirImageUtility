@@ -112,6 +112,7 @@ class AIUFlashAirConfigRequest: AIUFlashAirDataRequestProtocol {
                 observable.onNext(response)
                 observable.onCompleted()
             })
+            return Disposables.create()
         }
     }
     

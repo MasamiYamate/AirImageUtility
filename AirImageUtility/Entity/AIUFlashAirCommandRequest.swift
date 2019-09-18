@@ -44,6 +44,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
@@ -82,6 +83,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
     }
@@ -113,6 +115,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
     }
@@ -145,7 +148,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
-                
+                return Disposables.create()
             }
         }
 
@@ -179,6 +182,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
 
@@ -211,7 +215,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
-                
+                return Disposables.create()
             }
         }
 
@@ -244,7 +248,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
-                
+                return Disposables.create()
             }
         }
 
@@ -277,6 +281,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
 
@@ -309,6 +314,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
@@ -342,6 +348,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
 
@@ -375,6 +382,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
@@ -408,7 +416,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
-                
+                return Disposables.create()
             }
         }
         
@@ -442,7 +450,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
-                
+                return Disposables.create()
             }
         }
 
@@ -475,6 +483,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
@@ -507,6 +516,7 @@ class AIUFlashAirCommandRequest {
                     
                     observable.onNext(response)
                 })
+                return Disposables.create()
             }
         }
  
@@ -545,6 +555,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
     }
@@ -582,6 +593,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
@@ -615,6 +627,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
@@ -648,6 +661,7 @@ class AIUFlashAirCommandRequest {
                     observable.onNext(response)
                     observable.onCompleted()
                 })
+                return Disposables.create()
             }
         }
         
