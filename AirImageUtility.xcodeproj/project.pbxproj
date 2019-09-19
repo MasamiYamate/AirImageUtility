@@ -11,6 +11,7 @@
 		BB4139DFA9BE2CE84F809D74 /* Pods_AirImageUtilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC9D7192B102BDFFAFFC614 /* Pods_AirImageUtilityTests.framework */; };
 		D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017F4F3231F79B4000145D1 /* AIUBitRange.swift */; };
 		D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022A3B8231790B300D27F3A /* AIUBitUtility.swift */; };
+		D080E24F23326DF40094D651 /* AIUFileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D080E24E23326DF40094D651 /* AIUFileUseCase.swift */; };
 		D09C4ADB23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4ADA23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift */; };
 		D09C4ADD23268D52006F3500 /* AIUBlancSectorCountDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4ADC23268D52006F3500 /* AIUBlancSectorCountDataStore.swift */; };
 		D09C4ADF23268F25006F3500 /* AIUBlancSectorCountDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4ADE23268F25006F3500 /* AIUBlancSectorCountDataModel.swift */; };
@@ -19,6 +20,7 @@
 		D09C4AE523269C47006F3500 /* AIUDisablePhotoShareModeDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4AE423269C47006F3500 /* AIUDisablePhotoShareModeDataStore.swift */; };
 		D09C4AE723269CC4006F3500 /* AIUStatusPhotoShareModeDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4AE623269CC4006F3500 /* AIUStatusPhotoShareModeDataStore.swift */; };
 		D09C4AE923269D01006F3500 /* AIUSsidPhotoShareModeDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09C4AE823269D01006F3500 /* AIUSsidPhotoShareModeDataStore.swift */; };
+		D0B870492333C3C7009CEC37 /* AIUThumbnailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B870482333C3C7009CEC37 /* AIUThumbnailDataStore.swift */; };
 		D0C32D432310211900E907D9 /* AirImageUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C32D392310211800E907D9 /* AirImageUtility.framework */; };
 		D0C32D482310211900E907D9 /* AirImageUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D472310211900E907D9 /* AirImageUtilityTests.swift */; };
 		D0C32D4A2310211900E907D9 /* AirImageUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C32D3C2310211900E907D9 /* AirImageUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +67,7 @@
 		BAAE27B6238959A8AB306E9F /* Pods-AirImageUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirImageUtility.release.xcconfig"; path = "Target Support Files/Pods-AirImageUtility/Pods-AirImageUtility.release.xcconfig"; sourceTree = "<group>"; };
 		D017F4F3231F79B4000145D1 /* AIUBitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitRange.swift; sourceTree = "<group>"; };
 		D022A3B8231790B300D27F3A /* AIUBitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitUtility.swift; sourceTree = "<group>"; };
+		D080E24E23326DF40094D651 /* AIUFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileUseCase.swift; sourceTree = "<group>"; };
 		D09C4ADA23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUUpdateInfoByTimeStampDataStore.swift; sourceTree = "<group>"; };
 		D09C4ADC23268D52006F3500 /* AIUBlancSectorCountDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBlancSectorCountDataStore.swift; sourceTree = "<group>"; };
 		D09C4ADE23268F25006F3500 /* AIUBlancSectorCountDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBlancSectorCountDataModel.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		D09C4AE423269C47006F3500 /* AIUDisablePhotoShareModeDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUDisablePhotoShareModeDataStore.swift; sourceTree = "<group>"; };
 		D09C4AE623269CC4006F3500 /* AIUStatusPhotoShareModeDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUStatusPhotoShareModeDataStore.swift; sourceTree = "<group>"; };
 		D09C4AE823269D01006F3500 /* AIUSsidPhotoShareModeDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUSsidPhotoShareModeDataStore.swift; sourceTree = "<group>"; };
+		D0B870482333C3C7009CEC37 /* AIUThumbnailDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUThumbnailDataStore.swift; sourceTree = "<group>"; };
 		D0C32D392310211800E907D9 /* AirImageUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirImageUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C32D3C2310211900E907D9 /* AirImageUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirImageUtility.h; sourceTree = "<group>"; };
 		D0C32D3D2310211900E907D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,8 +145,15 @@
 				A9C194AF8589F518A1411B9B /* Pods-AirImageUtilityTests.debug.xcconfig */,
 				3A1F26377BBEA14063D39646 /* Pods-AirImageUtilityTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D080E24D23326D880094D651 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				D080E24E23326DF40094D651 /* AIUFileUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		D09C4AEA23269D8A006F3500 /* Config */ = {
@@ -150,6 +161,14 @@
 			children = (
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		D0B870472333C2ED009CEC37 /* Thumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				D0B870482333C3C7009CEC37 /* AIUThumbnailDataStore.swift */,
+			);
+			path = Thumbnail;
 			sourceTree = "<group>";
 		};
 		D0C32D2F2310211800E907D9 = {
@@ -175,6 +194,7 @@
 		D0C32D3B2310211800E907D9 /* AirImageUtility */ = {
 			isa = PBXGroup;
 			children = (
+				D080E24D23326D880094D651 /* UseCase */,
 				D0C32D632312C7EA00E907D9 /* DataModel */,
 				D0C32D532310233400E907D9 /* DataStore */,
 				D0C32D5C2312C41800E907D9 /* Entity */,
@@ -198,6 +218,7 @@
 		D0C32D532310233400E907D9 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				D0B870472333C2ED009CEC37 /* Thumbnail */,
 				D09C4AEA23269D8A006F3500 /* Config */,
 				D0EEF2E62316C82600101C23 /* Command */,
 			);
@@ -396,6 +417,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AirImageUtilityTests/Pods-AirImageUtilityTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
@@ -404,6 +427,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
@@ -481,6 +506,7 @@
 				D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */,
 				D09C4ADB23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift in Sources */,
 				D09C4ADD23268D52006F3500 /* AIUBlancSectorCountDataStore.swift in Sources */,
+				D080E24F23326DF40094D651 /* AIUFileUseCase.swift in Sources */,
 				D0C32D592310297E00E907D9 /* AIUConstants.swift in Sources */,
 				D0C32D5B23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift in Sources */,
 				D0F59E1E23268A1C0078C2CE /* AIUWifiModeDataStore.swift in Sources */,
@@ -493,6 +519,7 @@
 				D09C4AE923269D01006F3500 /* AIUSsidPhotoShareModeDataStore.swift in Sources */,
 				D0F59E16232684C40078C2CE /* AIUMacAddressDataStore.swift in Sources */,
 				D0F59E14232683320078C2CE /* AIUNetworkPasswordDataStore.swift in Sources */,
+				D0B870492333C3C7009CEC37 /* AIUThumbnailDataStore.swift in Sources */,
 				D0F59E2223268AEB0078C2CE /* AIUApplicationInfoDataStore.swift in Sources */,
 				D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */,
 				D0EEF2EA2316C8B400101C23 /* AIUFilePathDataModel.swift in Sources */,

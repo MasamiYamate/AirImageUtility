@@ -20,8 +20,13 @@ class AirImageUtilityTests: XCTestCase {
     }
 
     func testExample() {
-        let value = "/DCIM,100__TSB,0,16,9944,129\n/DCIM,0126_1.jpg,70408,32,17071,28040"
-        AIUFileListDataStore(searchPath: nil).request(callback: nil)
+        var values = [1,2,3,4]
+        while values.count != 0 {
+            print(values)
+            values.removeFirst()
+            values.append(1)
+        }
+        
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
