@@ -14,7 +14,11 @@ struct AIUFileUseCase {
     
     private let disposeBag = DisposeBag()
     
-    func fileList(by searchPath: String?) -> Observable<[AIUFilePathDataModel]> {
+    /// 任意のDirectory直下のファイルリストを取得します
+    ///
+    /// - Parameter searchPath: 任意のDirectoryのパス
+    /// - Returns: FileList
+    func fileList(with searchPath: String?) -> Observable<[AIUFilePathDataModel]> {
         let searchQuery: String = searchPath ?? "/"
         let fileList = AIUFileListDataStore.init(searchPath: searchQuery)
         
@@ -33,9 +37,13 @@ struct AIUFileUseCase {
         }
     }
     
-    func dataFileList(by searchPath: String?) -> Observable<[AIUFilePathDataModel]> {
+    /// 任意のパスより下の階層のDirectory以外のファイルを取得する
+    ///
+    /// - Parameter searchPath: 任意のDirectoryのパス
+    /// - Returns: Filelist
+    func dataFileList(with searchPath: String?) -> Observable<[AIUFilePathDataModel]> {
         return Observable<[AIUFilePathDataModel]>.create { observable in
-            var tmpPaths = self.syncFileList(by: searchPath)
+            var tmpPaths = self.syncFileList(with: searchPath)
             var dataFilePaths = [AIUFilePathDataModel]()
             while tmpPaths.count != 0 {
                 for _ in 0..<tmpPaths.count {
@@ -54,11 +62,27 @@ struct AIUFileUseCase {
         }
     }
     
-    func thumbnail(by filePath: String) -> Observable<Data> {
+    /// Thumbnail用Dataを取得する
+    ///
+    /// - Parameter filePath: Thumbnailを取得したいファイルのパス
+    /// - Returns: Data Thumbnailのデータ
+    func thumbnail(with filePath: String) -> Observable<Data> {
         return AIUThumbnailDataStore(filePath: filePath).request()
     }
     
-    func count(by searchPath: String?) -> Observable<Int> {
+    /// オリジナルデータを取得する
+    ///
+    /// - Parameter filePath: オリジナルデータを取得したいファイルのパス
+    /// - Returns: Data オリジナルデータ
+    func data(with filePath: String) -> Observable<Data> {
+        return AIUFileDataStore(filePath: filePath).request()
+    }
+    
+    /// 任意のDirectory直下のファイル件数を取得します
+    ///
+    /// - Parameter searchPath: 検索したいDirectoryのパス
+    /// - Returns: Int ファイルの総数
+    func count(with searchPath: String?) -> Observable<Int> {
         return AIUFileCountDataStore(searchPath: searchPath).request()
     }
     
@@ -66,10 +90,10 @@ struct AIUFileUseCase {
 
 private extension AIUFileUseCase {
     
-    func syncFileList(by searchPath: String?) -> [AIUFilePathDataModel] {
+    func syncFileList(with searchPath: String?) -> [AIUFilePathDataModel] {
         let semaphore = DispatchSemaphore(value: 0)
         var result = [AIUFilePathDataModel]()
-        fileList(by: searchPath).subscribe(onNext: {value in
+        fileList(with: searchPath).subscribe(onNext: {value in
             result = value
             semaphore.signal()
         }).disposed(by: disposeBag)

@@ -90,11 +90,22 @@ class AIUFlashAirRequestTypes {
     enum ThumbnailCgi {
         case get
         
-        func url (imagePath: String) -> String {
+        func url (with path: String) -> String {
             return String(format: "%@%@%@", arguments: [
                 AIUFlashAirRequestTypes.baseUrl,
                 AIUFlashAirRequestTypes.thumbnail,
-                imagePath
+                path
+                ])
+        }
+    }
+    
+    enum fileData {
+        case get
+        
+        func url (with path: String) -> String {
+            return String(format: "%@%@", arguments: [
+                AIUFlashAirRequestTypes.baseUrl,
+                path
                 ])
         }
     }

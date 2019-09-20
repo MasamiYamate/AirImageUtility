@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AIUBlancSectorCountDataModel {
+public struct AIUBlancSectorCountDataModel {
     
     let totalSector: Int
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AIUFilePathDataModel {
+public struct AIUFilePathDataModel {
     
     enum AIUAttributeTypes: Int {
         case archive = 5
