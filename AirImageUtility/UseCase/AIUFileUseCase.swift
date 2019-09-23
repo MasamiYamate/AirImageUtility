@@ -50,7 +50,7 @@ struct AIUFileUseCase {
                     if let tmpPath = tmpPaths.first {
                         tmpPaths.removeFirst()
                         if tmpPath.attribute == .directory {
-                            tmpPaths.append(tmpPath)
+                            tmpPaths += self.syncFileList(with: tmpPath.directoryName)
                         } else {
                             dataFilePaths.append(tmpPath)
                         }

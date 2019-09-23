@@ -456,7 +456,7 @@ class AIUFlashAirCommandRequest {
 
     }
     
-    /// Card Identifierの取得を行います
+    /// アップデート情報を取得します
     struct AIUUpdateInfoByTimeStamp: AIUFlashAirDataRequestProtocol {
         
         typealias Response = String

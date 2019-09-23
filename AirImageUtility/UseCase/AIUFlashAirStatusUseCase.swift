@@ -145,4 +145,63 @@ struct AIUFlashAirStatusUseCase {
         }
     }
     
+    /// アプリケーション独自の情報を取得します
+    func applicationInfo () -> Observable<String> {
+        return AIUApplicationInfoDataStore().request()
+    }
+    
+    /// CIDパラメーターを取得します
+    func cidParameter () -> Observable<String> {
+        return AIUCidDataStore().request()
+    }
+    
+    /// 最後に書き込みが行われたタイムスタンプの取得を行う
+    /// カード起動からのミリ秒
+    func latestWriteTimeStamp () -> Observable<Int> {
+        return Observable<Int>.create { observable in
+            let timestamp = AIUUpdateInfoByTimeStampDataStore().request()
+            timestamp.subscribe(onNext: { value in
+                guard let value = Int(value) else {
+                    // TODO: Error後でかけ
+                    return
+                }
+                observable.onNext(value)
+                observable.onCompleted()
+            }, onError: { err in
+                observable.onError(err)
+            }, onCompleted: {
+                observable.onCompleted()
+            }).disposed(by: self.disposeBag)
+            return Disposables.create()
+        }
+    }
+    
+    /// カードの空き情報を取得します
+    func blancStatus () -> Observable<AIUBlancSectorCountDataModel> {
+        return AIUBlancSectorCountDataStore().request()
+    }
+    
+    // MARK: Photo share mode
+    
+    /// フォトシェアモードを有効にします
+    func enablePhotoShare () -> Observable<String> {
+        return AIUEnablePhotoShareModeDataStore().request()
+    }
+    
+    /// フォトシェアモードを解除します
+    func disablePhotoShare () -> Observable<String> {
+        return AIUDisablePhotoShareModeDataStore().request()
+    }
+    
+    
+    /// フォトシェアモードのステータスを取得します
+    func statusPhotoShare () -> Observable<String> {
+        return AIUStatusPhotoShareModeDataStore().request()
+    }
+    
+    /// フォトシェアモードのSSIDを取得します
+    func ssidPhotoShare () -> Observable<String> {
+        return AIUSsidPhotoShareModeDataStore().request()
+    }
+
 }
