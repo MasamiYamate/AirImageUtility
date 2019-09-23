@@ -32,6 +32,8 @@
 		D0C32D5B23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D5A23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift */; };
 		D0C32D5E2312C45000E907D9 /* AIUFlashAirDataRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D5D2312C45000E907D9 /* AIUFlashAirDataRequestProtocol.swift */; };
 		D0C32D612312C73400E907D9 /* AIUFlashAirCommandRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D602312C73400E907D9 /* AIUFlashAirCommandRequest.swift */; };
+		D0CABD52233892D600F6A054 /* AIUFlashAirConfigUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CABD51233892D600F6A054 /* AIUFlashAirConfigUseCase.swift */; };
+		D0CABD542338933400F6A054 /* AIUConfigDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CABD532338933400F6A054 /* AIUConfigDataStore.swift */; };
 		D0D337E523142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D337E423142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift */; };
 		D0EEF2E52316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E42316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift */; };
 		D0EEF2E82316C84A00101C23 /* AIUFileListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */; };
@@ -94,6 +96,8 @@
 		D0C32D5A23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirRequestTypes.swift; sourceTree = "<group>"; };
 		D0C32D5D2312C45000E907D9 /* AIUFlashAirDataRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirDataRequestProtocol.swift; sourceTree = "<group>"; };
 		D0C32D602312C73400E907D9 /* AIUFlashAirCommandRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirCommandRequest.swift; sourceTree = "<group>"; };
+		D0CABD51233892D600F6A054 /* AIUFlashAirConfigUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirConfigUseCase.swift; sourceTree = "<group>"; };
+		D0CABD532338933400F6A054 /* AIUConfigDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUConfigDataStore.swift; sourceTree = "<group>"; };
 		D0D337E423142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirConfigRequest.swift; sourceTree = "<group>"; };
 		D0EEF2E42316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirThumbnailRequest.swift; sourceTree = "<group>"; };
 		D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileListDataStore.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				D080E24E23326DF40094D651 /* AIUFileUseCase.swift */,
 				D0B8704A2334513E009CEC37 /* AIUFlashAirStatusUseCase.swift */,
+				D0CABD51233892D600F6A054 /* AIUFlashAirConfigUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 		D09C4AEA23269D8A006F3500 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				D0CABD532338933400F6A054 /* AIUConfigDataStore.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				D0C32D5B23102D5E00E907D9 /* AIUFlashAirRequestTypes.swift in Sources */,
 				D0F59E1E23268A1C0078C2CE /* AIUWifiModeDataStore.swift in Sources */,
 				D09C4AE523269C47006F3500 /* AIUDisablePhotoShareModeDataStore.swift in Sources */,
+				D0CABD542338933400F6A054 /* AIUConfigDataStore.swift in Sources */,
 				D09C4AE723269CC4006F3500 /* AIUStatusPhotoShareModeDataStore.swift in Sources */,
 				D0EEF2E52316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift in Sources */,
 				D09C4ADF23268F25006F3500 /* AIUBlancSectorCountDataModel.swift in Sources */,
@@ -543,6 +550,7 @@
 				D0B8704B2334513E009CEC37 /* AIUFlashAirStatusUseCase.swift in Sources */,
 				D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */,
 				D0EEF2EA2316C8B400101C23 /* AIUFilePathDataModel.swift in Sources */,
+				D0CABD52233892D600F6A054 /* AIUFlashAirConfigUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

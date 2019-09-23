@@ -13,21 +13,6 @@ import RxCocoa
 class AIUFlashAirConfigRequest: AIUFlashAirDataRequestProtocol {
     typealias Response = String
     
-    enum WirelessModeTypes: String {
-        case apModeDisableWriteProtect = "0"
-        case staModeDisableWriteProtect = "2"
-        case multiConnectModeDisableWriteProtect = "3"
-        case apMode = "4"
-        case staMode = "5"
-        case multiConnectMode = "6"
-    }
-    
-    enum WebDAVTypes: String {
-        case disableFlashAirDrive = "0"
-        case enableFlashAirDriveByReadOnly = "1"
-        case enableFlashAirDrive = "2"
-    }
-    
     private let httpRequest = AIUHttpRequest()
     
     var parameters = [String]()
@@ -42,7 +27,7 @@ class AIUFlashAirConfigRequest: AIUFlashAirDataRequestProtocol {
         parameters.append(parameter)
     }
     
-    func appendAppMode (with value: WirelessModeTypes) {
+    func appendAppMode (with value: AIUConstants.WirelessModeTypes) {
         let parameter = AIUFlashAirRequestTypes.ConfigCgi.appMode.parameter(with: value.rawValue)
         parameters.append(parameter)
     }
@@ -87,7 +72,7 @@ class AIUFlashAirConfigRequest: AIUFlashAirDataRequestProtocol {
         parameters.append(parameter)
     }
     
-    func appendSetWebDAV (with value: WebDAVTypes) {
+    func appendSetWebDAV (with value: AIUConstants.WebDAVTypes) {
         let parameter = AIUFlashAirRequestTypes.ConfigCgi.setWebDav.parameter(with: value.rawValue)
         parameters.append(parameter)
     }

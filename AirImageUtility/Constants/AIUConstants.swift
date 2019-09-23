@@ -60,4 +60,19 @@ class AIUConstants {
         
     }
     
+    public enum WirelessModeTypes: String {
+        case apModeDisableWriteProtect = "0"
+        case staModeDisableWriteProtect = "2"
+        case multiConnectModeDisableWriteProtect = "3"
+        case apMode = "4"
+        case staMode = "5"
+        case multiConnectMode = "6"
+    }
+    
+    public enum WebDAVTypes: String {
+        case disableFlashAirDrive = "0"
+        case enableFlashAirDriveByReadOnly = "1"
+        case enableFlashAirDrive = "2"
+    }
+    
 }
