@@ -34,6 +34,7 @@
 		D0C32D612312C73400E907D9 /* AIUFlashAirCommandRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C32D602312C73400E907D9 /* AIUFlashAirCommandRequest.swift */; };
 		D0CABD52233892D600F6A054 /* AIUFlashAirConfigUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CABD51233892D600F6A054 /* AIUFlashAirConfigUseCase.swift */; };
 		D0CABD542338933400F6A054 /* AIUConfigDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CABD532338933400F6A054 /* AIUConfigDataStore.swift */; };
+		D0CABD5623389BA900F6A054 /* AirImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CABD5523389BA900F6A054 /* AirImageUtility.swift */; };
 		D0D337E523142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D337E423142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift */; };
 		D0EEF2E52316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E42316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift */; };
 		D0EEF2E82316C84A00101C23 /* AIUFileListDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */; };
@@ -98,6 +99,7 @@
 		D0C32D602312C73400E907D9 /* AIUFlashAirCommandRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirCommandRequest.swift; sourceTree = "<group>"; };
 		D0CABD51233892D600F6A054 /* AIUFlashAirConfigUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirConfigUseCase.swift; sourceTree = "<group>"; };
 		D0CABD532338933400F6A054 /* AIUConfigDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUConfigDataStore.swift; sourceTree = "<group>"; };
+		D0CABD5523389BA900F6A054 /* AirImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirImageUtility.swift; sourceTree = "<group>"; };
 		D0D337E423142E3600BEF0B6 /* AIUFlashAirConfigRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirConfigRequest.swift; sourceTree = "<group>"; };
 		D0EEF2E42316BEB000101C23 /* AIUFlashAirThumbnailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFlashAirThumbnailRequest.swift; sourceTree = "<group>"; };
 		D0EEF2E72316C84A00101C23 /* AIUFileListDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileListDataStore.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				D0C32D572310295C00E907D9 /* Constants */,
 				D0C32D54231023A400E907D9 /* Utility */,
 				D0C32D3C2310211900E907D9 /* AirImageUtility.h */,
+				D0CABD5523389BA900F6A054 /* AirImageUtility.swift */,
 				D0C32D3D2310211900E907D9 /* Info.plist */,
 			);
 			path = AirImageUtility;
@@ -515,6 +518,7 @@
 				D0B870522334FCC8009CEC37 /* AIUFileDataStore.swift in Sources */,
 				D0EEF2EE2316CC1600101C23 /* AIUFilePathDataModelTranslator.swift in Sources */,
 				D0EEF2E82316C84A00101C23 /* AIUFileListDataStore.swift in Sources */,
+				D0CABD5623389BA900F6A054 /* AirImageUtility.swift in Sources */,
 				D0F59E1A232685DB0078C2CE /* AIUFirmwareVersionInfoDataStore.swift in Sources */,
 				D09C4AE323269AA2006F3500 /* AIUEnablePhotoShareModeDataStore.swift in Sources */,
 				D0F59E10232681DA0078C2CE /* AIUUpdateInfoDataStore.swift in Sources */,
