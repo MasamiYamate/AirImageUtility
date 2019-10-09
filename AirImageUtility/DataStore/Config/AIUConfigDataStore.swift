@@ -12,6 +12,11 @@ import RxCocoa
 
 struct AIUConfigDataStore {
     
+    // Entityの設計がparametersに設定したいparameterをappendしていき
+    // parameter追加後、Requestメソッドをコールするため
+    // シングルトンで呼び出す
+    static let shared: AIUConfigDataStore = AIUConfigDataStore()
+    
     private let entity = AIUFlashAirConfigRequest()
     
     func appendAppAutoTime (with value: String) {

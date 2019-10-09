@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AIUConstants {
+open class AIUConstants {
     
     // MARK: 必要な定数群
     /// FlashAirの年数基準年
