@@ -249,31 +249,58 @@ open class AirImageUtility {
         private let dataStore = AIUConfigDataStore.shared
         
         private let disposeBag = DisposeBag()
-        
-        func setAppAutoTime (with value: String) {
+
+        open func setAppAutoTime (with value: String) {
             dataStore.appendAppAutoTime(with: value)
         }
-        
-        func setAppInfo (with value: String) {
+
+        open func setAppInfo (with value: String) {
             dataStore.appendAppInfo(with: value)
         }
-        
-        func setAppMode (with value: String) {
+
+        open func setAppMode (with value: String) {
             dataStore.appendAppInfo(with: value)
         }
-        
-        func setAppNetworkKey (with value: String) {
+
+        open func setAppNetworkKey (with value: String) {
             dataStore.appendAppNetworkKey(with: value)
         }
-        
-        func setAppSsid (with value: String) {
+
+        open func setAppSsid (with value: String) {
             dataStore.appendAppSsid(with: value)
         }
-        
-        
-        
+
+        open func setBrgNetworkKey (with value: String) {
+            dataStore.appendBrgNetworkKey(with: value)
+        }
+
+        open func setBrgSsid (with value: String) {
+            dataStore.appendBrgSsis(with: value)
+        }
+
+        open func setCiPaht (with value: String) {
+            dataStore.appendCiPath(with: value)
+        }
+
+        open func clearMasterCode () {
+            dataStore.appendClearMasterCode()
+        }
+
+        open func setTimeZone (with value: String) {
+            dataStore.appendSetTimeZone(with: value)
+        }
+
+        open func setWebDAV (with value: AIUConstants.WebDAVTypes) {
+            dataStore.appendSetWebDAV(with: value)
+        }
+
+        open func reflect (callback: ((Result<String, Error>) -> Void)?) {
+            let request = dataStore.request()
+            request.subscribe(onNext: { value in
+                callback?(.success(value))
+            }, onError: { err in
+                callback?(.failure(err))
+            }).disposed(by: disposeBag)
+        }
     }
-    
-    
-    
 }
