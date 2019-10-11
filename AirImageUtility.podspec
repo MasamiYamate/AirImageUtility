@@ -11,5 +11,6 @@ s.requires_arc = true
 s.source_files = 'AirImageUtility/**/*.{swift}'
 s.swift_versions = ['5.0']
 s.dependency 'RxSwift'
+s.dependency 'RxCocoa'
 
 end
