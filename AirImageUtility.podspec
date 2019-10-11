@@ -10,6 +10,6 @@ s.platform     = :ios, "8.0"
 s.requires_arc = true
 s.source_files = 'AirImageUtility/**/*.{swift}'
 s.swift_versions = ['5.0']
-s.frameworks = "RxSwift", "RxCocoa"
+s.dependency 'RxSwift'
 
 end
