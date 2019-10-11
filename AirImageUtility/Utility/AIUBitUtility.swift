@@ -22,7 +22,7 @@ class AIUBitUtility {
     }
     
     static func specificBitPattern (with bitRange: AIUBitRange, bit: Int) -> String? {
-        var pattern = bitPattern(with: bit)
+        let pattern = bitPattern(with: bit)
         let start = bitRange.start
         let end = bitRange.end
 
