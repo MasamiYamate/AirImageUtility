@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -73,17 +73,6 @@
 		BAAE27B6238959A8AB306E9F /* Pods-AirImageUtility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirImageUtility.release.xcconfig"; path = "Target Support Files/Pods-AirImageUtility/Pods-AirImageUtility.release.xcconfig"; sourceTree = "<group>"; };
 		D017F4F3231F79B4000145D1 /* AIUBitRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitRange.swift; sourceTree = "<group>"; };
 		D022A3B8231790B300D27F3A /* AIUBitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBitUtility.swift; sourceTree = "<group>"; };
-		D069D05C234F734500A77B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D069D05E234F734500A77B26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D069D060234F734500A77B26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D069D062234F734700A77B26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D069D065234F734700A77B26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D069D068234F734700A77B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D069D06A234F734700A77B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D069D073234F734800A77B26 /* AirImageTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirImageTestAppTests.swift; sourceTree = "<group>"; };
-		D069D075234F734800A77B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D069D07E234F734800A77B26 /* AirImageTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirImageTestAppUITests.swift; sourceTree = "<group>"; };
-		D069D080234F734800A77B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D080E24E23326DF40094D651 /* AIUFileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUFileUseCase.swift; sourceTree = "<group>"; };
 		D09C4ADA23268CDB006F3500 /* AIUUpdateInfoByTimeStampDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUUpdateInfoByTimeStampDataStore.swift; sourceTree = "<group>"; };
 		D09C4ADC23268D52006F3500 /* AIUBlancSectorCountDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUBlancSectorCountDataStore.swift; sourceTree = "<group>"; };
@@ -171,46 +160,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D069D05B234F734500A77B26 /* AirImageTestApp */ = {
-			isa = PBXGroup;
-			children = (
-				D069D05C234F734500A77B26 /* AppDelegate.swift */,
-				D069D05E234F734500A77B26 /* SceneDelegate.swift */,
-				D069D060234F734500A77B26 /* ContentView.swift */,
-				D069D062234F734700A77B26 /* Assets.xcassets */,
-				D069D067234F734700A77B26 /* LaunchScreen.storyboard */,
-				D069D06A234F734700A77B26 /* Info.plist */,
-				D069D064234F734700A77B26 /* Preview Content */,
-			);
-			path = AirImageTestApp;
-			sourceTree = "<group>";
-		};
-		D069D064234F734700A77B26 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				D069D065234F734700A77B26 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D069D072234F734800A77B26 /* AirImageTestAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				D069D073234F734800A77B26 /* AirImageTestAppTests.swift */,
-				D069D075234F734800A77B26 /* Info.plist */,
-			);
-			path = AirImageTestAppTests;
-			sourceTree = "<group>";
-		};
-		D069D07D234F734800A77B26 /* AirImageTestAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D069D07E234F734800A77B26 /* AirImageTestAppUITests.swift */,
-				D069D080234F734800A77B26 /* Info.plist */,
-			);
-			path = AirImageTestAppUITests;
-			sourceTree = "<group>";
-		};
 		D080E24D23326D880094D651 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,9 +199,6 @@
 			children = (
 				D0C32D3B2310211800E907D9 /* AirImageUtility */,
 				D0C32D462310211900E907D9 /* AirImageUtilityTests */,
-				D069D05B234F734500A77B26 /* AirImageTestApp */,
-				D069D072234F734800A77B26 /* AirImageTestAppTests */,
-				D069D07D234F734800A77B26 /* AirImageTestAppUITests */,
 				D0C32D3A2310211800E907D9 /* Products */,
 				330E9C3C1730E551CBB1F04B /* Pods */,
 				0D1BCB54FB4A8D5A3EEEC138 /* Frameworks */,
@@ -495,24 +441,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AirImageUtilityTests/Pods-AirImageUtilityTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
-				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AirImageUtilityTests/Pods-AirImageUtilityTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-AirImageUtilityTests/Pods-AirImageUtilityTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -631,17 +564,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		D069D067234F734700A77B26 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D069D068234F734700A77B26 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		D0C32D4B2310211900E907D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -695,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -753,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

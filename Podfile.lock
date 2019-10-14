@@ -17,7 +17,7 @@ DEPENDENCIES:
   - RxTest (~> 5)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - RxBlocking
     - RxCocoa
     - RxRelay
@@ -33,4 +33,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 94c228cd6a87d7146f286e41aa467174e4d51771
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.3

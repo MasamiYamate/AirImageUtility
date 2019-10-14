@@ -20,13 +20,10 @@ class AirImageUtilityTests: XCTestCase {
     }
 
     func testExample() {
-        var values = [1,2,3,4]
-        while values.count != 0 {
-            print(values)
-            values.removeFirst()
-            values.append(1)
-        }
-        
+        AirImageUtility.file().dataFileList(with: nil, callback: { value in
+            let a = value
+            print("aaa")
+        })
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

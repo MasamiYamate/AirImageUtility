@@ -24,6 +24,10 @@ open class AIUConstants {
         static let sec = AIUBitRange(start: 0, end: 4)
     }
     
+    struct bitLength {
+        static let date = 15
+    }
+    
     public enum appMode: Int {
         // Start the wireless LAN function in manual start mode.
         // Sets the Wireless LAN to AP mode.

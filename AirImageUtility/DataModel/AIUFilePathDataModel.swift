@@ -30,3 +30,20 @@ public struct AIUFilePathDataModel {
     let date: Date
     
 }
+
+extension AIUFilePathDataModel: Equatable {
+    
+    static public func ==(l: AIUFilePathDataModel, r: AIUFilePathDataModel) -> Bool{
+        guard
+            l.directoryName == r.directoryName,
+            l.name == r.name,
+            l.size == r.size,
+            l.attribute == r.attribute,
+            l.date == r.date else {
+            return false
+        }
+        
+        return true
+    }
+    
+}

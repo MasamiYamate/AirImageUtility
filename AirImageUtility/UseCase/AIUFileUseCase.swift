@@ -25,7 +25,7 @@ struct AIUFileUseCase {
         return Observable<[AIUFilePathDataModel]>.create { observable in
             let fileListObservable = fileList.request()
             fileListObservable.subscribe(onNext: { res in
-                let models = AIUFilePathDataModelTranslator().translate(with: res)
+                let models = AIUFilePathDataModelTranslator().translate(with: res, query: searchQuery)
                 observable.onNext(models)
                 observable.onCompleted()
             }, onError: { err in
@@ -46,16 +46,40 @@ struct AIUFileUseCase {
             var tmpPaths = self.syncFileList(with: searchPath)
             var dataFilePaths = [AIUFilePathDataModel]()
             while tmpPaths.count != 0 {
-                for _ in 0..<tmpPaths.count {
-                    if let tmpPath = tmpPaths.first {
-                        tmpPaths.removeFirst()
-                        if tmpPath.attribute == .directory {
-                            tmpPaths += self.syncFileList(with: tmpPath.directoryName)
-                        } else {
+                var sortedPaths = [AIUFilePathDataModel]()
+                var newPaths = [AIUFilePathDataModel]()
+                for tmpPath in tmpPaths {
+                        sortedPaths.append(tmpPath)
+                    if
+                        tmpPath.attribute == .directory,
+                        let firstCharacter = tmpPath.name.first?.description,
+                        firstCharacter != "." {
+                        print(tmpPath.name.first?.description)
+                        print(tmpPath.directoryName + "/" + tmpPath.name)
+                        newPaths += self.syncFileList(with: tmpPath.directoryName + "/" + tmpPath.name)
+                    } else {
+                        var isAdd = true
+                        for (i, item) in dataFilePaths.enumerated() {
+                            if item == tmpPath {
+                                isAdd = false
+                                break
+                            }
+                        }
+                        if isAdd, tmpPath.attribute != .directory {
                             dataFilePaths.append(tmpPath)
                         }
                     }
                 }
+                for sortedPath in sortedPaths {
+                    for (i, item) in tmpPaths.enumerated() {
+                        if item == sortedPath {
+                            tmpPaths.remove(at: i)
+                            break
+                        }
+                    }
+                }
+                
+                tmpPaths += newPaths
             }
             observable.onNext(dataFilePaths)
             return Disposables.create()

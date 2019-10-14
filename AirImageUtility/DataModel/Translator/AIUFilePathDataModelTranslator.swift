@@ -10,11 +10,11 @@ import UIKit
 
 class AIUFilePathDataModelTranslator {
     
-    func translate (with value: String) -> [AIUFilePathDataModel] {
+    func translate (with value: String, query: String) -> [AIUFilePathDataModel] {
         let lines = value.components(separatedBy: .newlines)
         return lines.reduce([AIUFilePathDataModel]()) {
             var result = $0
-            guard let pathData: AIUFilePathDataModel = createPathData(with: $1) else {
+            guard let pathData: AIUFilePathDataModel = createPathData(with: $1, query: query) else {
                 return result
             }
             result.append(pathData)
@@ -22,11 +22,11 @@ class AIUFilePathDataModelTranslator {
         }
     }
     
-    private func createPathData (with value: String) -> AIUFilePathDataModel?  {
+    private func createPathData (with value: String, query: String) -> AIUFilePathDataModel?  {
         let items = value.components(separatedBy: ",")
         
         guard
-            let dirName = directoryName(with: items),
+            let dirName = directoryName(with: items, query: query),
             let name = fileName(with: items),
             let size = fileSize(with: items),
             let attr = attribute(with: items),
@@ -42,11 +42,17 @@ class AIUFilePathDataModelTranslator {
                                     date: date)
     }
     
-    private func directoryName(with value: [String]) -> String? {
+    private func directoryName(with value: [String], query: String) -> String? {
         guard value.indices.contains(0) else {
             return nil
         }
-        return value[0]
+        guard
+            !query.isEmpty,
+            query != "/",
+            value.indices.contains(1) else {
+            return value[0]
+        }
+        return query
     }
     
     private func fileName(with value: [String]) -> String? {
@@ -110,12 +116,12 @@ class AIUFilePathDataModelTranslator {
         
         // MARK: 各要素のパターン抽出
         guard
-            let yearPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.year, bit: dateBitValue),
-            let monthPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.month, bit: dateBitValue),
-            let dayPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.day, bit: dateBitValue),
-            let hourPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.hour, bit: timeBitValue),
-            let minPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.min, bit: timeBitValue),
-            let secPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.sec, bit: timeBitValue) else {
+            let yearPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.year, length: AIUConstants.bitLength.date, bit: dateBitValue),
+            let monthPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.month, length: AIUConstants.bitLength.date, bit: dateBitValue),
+            let dayPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.day, length: AIUConstants.bitLength.date,bit: dateBitValue),
+            let hourPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.hour, length: AIUConstants.bitLength.date, bit: timeBitValue),
+            let minPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.min, length: AIUConstants.bitLength.date, bit: timeBitValue),
+            let secPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.sec, length: AIUConstants.bitLength.date, bit: timeBitValue) else {
                 return nil
         }
         

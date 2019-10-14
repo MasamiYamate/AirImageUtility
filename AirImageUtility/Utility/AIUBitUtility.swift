@@ -21,8 +21,8 @@ class AIUBitUtility {
         return false
     }
     
-    static func specificBitPattern (with bitRange: AIUBitRange, bit: Int) -> String? {
-        let pattern = bitPattern(with: bit)
+    static func specificBitPattern (with bitRange: AIUBitRange, length: Int, bit: Int) -> String? {
+        let pattern = bitPattern(with: bit, length: length)
         let start = bitRange.start
         let end = bitRange.end
 
@@ -37,11 +37,20 @@ class AIUBitUtility {
     ///
     /// - Parameter value: rawValue
     /// - Returns: bitPattern
-    private static func bitPattern(with value: Int) -> [Int] {
+    private static func bitPattern(with value: Int, length: Int? = nil) -> [Int] {
         let pattern = String(value, radix: 2)
-        let patterns = pattern.compactMap {
+        var patterns = pattern.compactMap {
             Int($0.description)
         }
+        if
+            let length = length,
+            let paddingCnt: Int = length - patterns.count,
+            0 < paddingCnt {
+            for _ in 0..<paddingCnt {
+                patterns.append(0)
+            }
+        }
+
         return patterns.reversed()
     }
 }
