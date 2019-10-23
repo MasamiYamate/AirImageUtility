@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C0B55EBCF0E9F1BDEAC02B3 /* Pods_AirImageUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FD77C838EBE8994515063E /* Pods_AirImageUtility.framework */; };
+		9C0B55EBCF0E9F1BDEAC02B3 /* Pods_AirImageUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01FD77C838EBE8994515063E /* Pods_AirImageUtility.framework */; platformFilter = ios; };
 		BB4139DFA9BE2CE84F809D74 /* Pods_AirImageUtilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC9D7192B102BDFFAFFC614 /* Pods_AirImageUtilityTests.framework */; };
 		D017F4F4231F79B4000145D1 /* AIUBitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D017F4F3231F79B4000145D1 /* AIUBitRange.swift */; };
 		D022A3B9231790B300D27F3A /* AIUBitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D022A3B8231790B300D27F3A /* AIUBitUtility.swift */; };

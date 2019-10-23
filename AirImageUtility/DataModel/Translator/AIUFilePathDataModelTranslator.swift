@@ -34,6 +34,7 @@ class AIUFilePathDataModelTranslator {
                 return nil
         }
         
+        print(date.description)
         
         return AIUFilePathDataModel(directoryName: dirName,
                                     name: name,
@@ -109,43 +110,40 @@ class AIUFilePathDataModelTranslator {
         guard
             value.indices.contains(4),
             value.indices.contains(5),
-            let dateBitValue = Int(value[4]),
-            let timeBitValue = Int(value[5]) else {
+            let dateBitValue = UInt16(value[4]),
+            let timeBitValue = UInt16(value[5]) else {
                 return nil
         }
         
         // MARK: 各要素のパターン抽出
-        guard
-            let yearPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.year, length: AIUConstants.bitLength.date, bit: dateBitValue),
-            let monthPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.month, length: AIUConstants.bitLength.date, bit: dateBitValue),
-            let dayPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.day, length: AIUConstants.bitLength.date,bit: dateBitValue),
-            let hourPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.hour, length: AIUConstants.bitLength.date, bit: timeBitValue),
-            let minPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.min, length: AIUConstants.bitLength.date, bit: timeBitValue),
-            let secPattern = AIUBitUtility.specificBitPattern(with: AIUConstants.bitRanges.sec, length: AIUConstants.bitLength.date, bit: timeBitValue) else {
-                return nil
-        }
-        
+        let yearPattern = (dateBitValue & 0b1111111000000000) >> 9
+        let monthPattern = (dateBitValue & 0b0000000111100000) >> 5
+        let dayPattern = (dateBitValue & 0b0000000000011111)
+        let hourPattern = (timeBitValue & 0b1111100000000000) >> 11
+        let minPattern = (timeBitValue & 0b0000011111100000) >> 5
+        let secPattern = (timeBitValue & 0b0000000000011111)
+
         // MARK: 各要素のValueを算出する
         guard
-            let yearRaw = Int(yearPattern, radix: 2),
-            let month = Int(monthPattern, radix: 2),
-            let day = Int(dayPattern, radix: 2),
-            let hour = Int(hourPattern, radix: 2),
-            let min = Int(minPattern, radix: 2),
-            let secRaw = Int(secPattern, radix: 2) else {
+            let yearRaw = Int(yearPattern.description),
+            let month = Int(monthPattern.description),
+            let day = Int(dayPattern.description),
+            let hour = Int(hourPattern.description),
+            let min = Int(minPattern.description),
+            let secRaw = Int(secPattern.description) else {
                 return nil
         }
         
         // FlashAirの返却値そのままでは通常の年数にならないので補正する
         let year = AIUConstants.baseYear + yearRaw
         let sec = secRaw / 2
-        
+
         let stringDate = String(format: "%d-%d-%d-%d:%d:%d", arguments: [year,month,day,hour,min,sec])
-        
+
         let format = "yyyy-MM-dd-HH:mm:ss"
         let formater = DateFormatter()
         formater.dateFormat = format
-        
+
         return formater.date(from: stringDate)
     }
     

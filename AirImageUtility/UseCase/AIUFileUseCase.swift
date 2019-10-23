@@ -54,12 +54,10 @@ struct AIUFileUseCase {
                         tmpPath.attribute == .directory,
                         let firstCharacter = tmpPath.name.first?.description,
                         firstCharacter != "." {
-                        print(tmpPath.name.first?.description)
-                        print(tmpPath.directoryName + "/" + tmpPath.name)
                         newPaths += self.syncFileList(with: tmpPath.directoryName + "/" + tmpPath.name)
                     } else {
                         var isAdd = true
-                        for (i, item) in dataFilePaths.enumerated() {
+                        for item in dataFilePaths {
                             if item == tmpPath {
                                 isAdd = false
                                 break
