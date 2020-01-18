@@ -10,12 +10,14 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-open class AirImageUtility {
+open class AirImageUtility: NSObject {
+    
+    public override init() {}
     
     // MARK: ファイル操作関連
-    open class file {
+    open class file: NSObject {
         
-        public init() {}
+        public override init() {}
         
         private let disposeBag = DisposeBag()
         
@@ -45,7 +47,9 @@ open class AirImageUtility {
     }
     
     // MARK: SDカードのステータス関連
-    open class status {
+    open class status: NSObject {
+        
+        public override init() {}
         
         private let disposeBag = DisposeBag()
         
@@ -207,7 +211,9 @@ open class AirImageUtility {
     }
     
     // MARK: フォトシェアモード関連
-    open class photoShareMode {
+    open class photoShareMode: NSObject {
+        
+        public override init() {}
         
         private let disposeBag = DisposeBag()
         
@@ -246,7 +252,9 @@ open class AirImageUtility {
     }
 
     // MARK: Config設定操作関連
-    open class config {
+    open class config: NSObject {
+        
+        public override init() {}
         
         private let dataStore = AIUConfigDataStore.shared
         
