@@ -15,6 +15,8 @@ open class AirImageUtility {
     // MARK: ファイル操作関連
     open class file {
         
+        public init() {}
+        
         private let disposeBag = DisposeBag()
         
         /// ファイルリストを取得します
