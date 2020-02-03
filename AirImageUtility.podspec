@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "AirImageUtility"
-s.version      = "0.0.1"
+s.version      = "0.0.3"
 s.summary      = "Flash Air Utility"
 s.license      = { :type => "MIT", :file => "LICENSE" }
 s.homepage     = "https://github.com/MasamiYamate/AirImageUtility.git"

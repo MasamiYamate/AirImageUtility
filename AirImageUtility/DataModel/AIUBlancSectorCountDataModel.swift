@@ -10,18 +10,26 @@ import Foundation
 
 public struct AIUBlancSectorCountDataModel {
     
-    let totalSector: Int
     
-    let usedSector: Int
+    /// トータルセレクター数
+    public let totalSector: Int
     
-    let unusedSector: Int
+    /// 使用済みセレクター数
+    public let usedSector: Int
     
-    let sectorByteSize: Int
+    /// 未使用セレクター数
+    public let unusedSector: Int
     
-    let totalSize: Int
-
-    let unusedSize: Int
+    /// セレクターバイトサイズ
+    public let sectorByteSize: Int
     
-    let usedSize: Int
+    /// トータル容量
+    public let totalSize: Int
+    
+    /// 未使用領域サイズ
+    public let unusedSize: Int
+    
+    /// 使用済み領域サイズ
+    public let usedSize: Int
     
 }

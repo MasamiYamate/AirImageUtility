@@ -8,14 +8,14 @@
 
 import Foundation
 
-class AIUFlashAirRequestTypes {
+open class AIUFlashAirRequestTypes {
     
     static let baseUrl: String = "http://flashair/"
     static let command: String = "command.cgi?"
     static let config: String = "config.cgi?"
     static let thumbnail: String = "thumbnail.cgi?"
     
-    enum CommandCgi: String {
+    public enum CommandCgi: String {
         case fileList = "op=100"
         case fileCount = "op=101"
         case updateInfo = "op=102"
@@ -51,7 +51,7 @@ class AIUFlashAirRequestTypes {
         }
     }
     
-    enum ConfigCgi: String {
+    public enum ConfigCgi: String {
         case appAutoTime = "APPAUTOTIME"
         case appInfo = "APPINFO"
         case appMode = "APPMODE"
@@ -87,7 +87,7 @@ class AIUFlashAirRequestTypes {
         }
     }
     
-    enum ThumbnailCgi {
+    public enum ThumbnailCgi {
         case get
         
         func url (with path: String) -> String {
@@ -99,7 +99,7 @@ class AIUFlashAirRequestTypes {
         }
     }
     
-    enum fileData {
+    public enum fileData {
         case get
         
         func url (with path: String) -> String {

@@ -9,8 +9,9 @@
 import Foundation
 
 public struct AIUFilePathDataModel {
-    
-    enum AIUAttributeTypes: Int {
+
+    /// ファイル種別
+    public enum AIUAttributeTypes: Int {
         case archive = 5
         case directory = 4
         case volume = 3
@@ -19,15 +20,21 @@ public struct AIUFilePathDataModel {
         case readOnry = 0
     }
 
-    let directoryName: String
     
-    let name: String
+    /// 所属するディレクトリ名
+    public let directoryName: String
     
-    let size: Int
+    /// ファイル名
+    public let name: String
     
-    let attribute: AIUAttributeTypes
+    /// ファイルサイズ
+    public let size: Int
     
-    let date: Date
+    /// ファイル種別
+    public let attribute: AIUAttributeTypes
+    
+    /// ファイル生成日
+    public let date: Date
     
 }
 
