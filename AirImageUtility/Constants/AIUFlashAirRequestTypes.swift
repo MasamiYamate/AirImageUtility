@@ -10,10 +10,10 @@ import Foundation
 
 open class AIUFlashAirRequestTypes {
     
-    static let baseUrl: String = "http://flashair/"
-    static let command: String = "command.cgi?"
-    static let config: String = "config.cgi?"
-    static let thumbnail: String = "thumbnail.cgi?"
+    public static let baseUrl: String = "http://flashair/"
+    public static let command: String = "command.cgi?"
+    public static let config: String = "config.cgi?"
+    public static let thumbnail: String = "thumbnail.cgi?"
     
     public enum CommandCgi: String {
         case fileList = "op=100"
