@@ -32,18 +32,6 @@ open class AirImageUtility: NSObject {
                 callback?(.failure(err))
             }).disposed(by: disposeBag)
         }
-        
-        /// SDカード内のディレクトリ以外のファイルを取得する
-        /// - Parameter path: 検索したいファイルのパス
-        /// - Parameter callback: ディレクトリ以外のファイルパス
-        open func dataFileList(with path: String?, callback: ((Result<[AIUFilePathDataModel], Error>) -> Void)?) {
-            let dataFileList = AIUFileUseCase().dataFileList(with: path)
-            dataFileList.subscribe(onNext: { value in
-                callback?(.success(value))
-            }, onError: { err in
-                callback?(.failure(err))
-            }).disposed(by: disposeBag)
-        }
     }
     
     // MARK: SDカードのステータス関連

@@ -12,76 +12,22 @@ import RxCocoa
 
 struct AIUFileUseCase {
     
+    private let translator = AIUFilePathDataModelTranslator()
+    
     private let disposeBag = DisposeBag()
     
     /// 任意のDirectory直下のファイルリストを取得します
     ///
     /// - Parameter searchPath: 任意のDirectoryのパス
     /// - Returns: FileList
-    func fileList(with searchPath: String?) -> Observable<[AIUFilePathDataModel]> {
-        let searchQuery: String = searchPath ?? "/"
-        let fileList = AIUFileListDataStore.init(searchPath: searchQuery)
+    func fileList(with searchPath: String = "/") -> Observable<[AIUFilePathDataModel]> {
+        let fileList = AIUFileListDataStore.init(searchPath: searchPath)
         
-        return Observable<[AIUFilePathDataModel]>.create { observable in
-            let fileListObservable = fileList.request()
-            fileListObservable.subscribe(onNext: { res in
-                let models = AIUFilePathDataModelTranslator().translate(with: res, query: searchQuery)
-                observable.onNext(models)
-                observable.onCompleted()
-            }, onError: { err in
-                observable.onError(err)
-            }, onCompleted: {
-                observable.onCompleted()
-            }).disposed(by: self.disposeBag)
-            return Disposables.create()
-        }
-    }
-    
-    /// 任意のパスより下の階層のDirectory以外のファイルを取得する
-    ///
-    /// - Parameter searchPath: 任意のDirectoryのパス
-    /// - Returns: Filelist
-    func dataFileList(with searchPath: String?) -> Observable<[AIUFilePathDataModel]> {
-        return Observable<[AIUFilePathDataModel]>.create { observable in
-            var tmpPaths = self.syncFileList(with: searchPath)
-            var dataFilePaths = [AIUFilePathDataModel]()
-            while tmpPaths.count != 0 {
-                var sortedPaths = [AIUFilePathDataModel]()
-                var newPaths = [AIUFilePathDataModel]()
-                for tmpPath in tmpPaths {
-                        sortedPaths.append(tmpPath)
-                    if
-                        tmpPath.attribute == .directory,
-                        let firstCharacter = tmpPath.name.first?.description,
-                        firstCharacter != "." {
-                        newPaths += self.syncFileList(with: tmpPath.directoryName + "/" + tmpPath.name)
-                    } else {
-                        var isAdd = true
-                        for item in dataFilePaths {
-                            if item == tmpPath {
-                                isAdd = false
-                                break
-                            }
-                        }
-                        if isAdd, tmpPath.attribute != .directory {
-                            dataFilePaths.append(tmpPath)
-                        }
-                    }
-                }
-                for sortedPath in sortedPaths {
-                    for (i, item) in tmpPaths.enumerated() {
-                        if item == sortedPath {
-                            tmpPaths.remove(at: i)
-                            break
-                        }
-                    }
-                }
-                
-                tmpPaths += newPaths
-            }
-            observable.onNext(dataFilePaths)
-            return Disposables.create()
-        }
+        return AIUFileListDataStore(searchPath: searchPath)
+            .request()
+            .flatMap({ result -> Observable<[AIUFilePathDataModel]> in
+                return translator.translate(with: result, query: searchQuery)
+            })
     }
     
     /// Thumbnail用Dataを取得する
