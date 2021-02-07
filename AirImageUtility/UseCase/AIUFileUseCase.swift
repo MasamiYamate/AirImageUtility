@@ -26,7 +26,7 @@ struct AIUFileUseCase {
         return AIUFileListDataStore(searchPath: searchPath)
             .request()
             .flatMap({ result -> Observable<[AIUFilePathDataModel]> in
-                return translator.translate(with: result, query: searchQuery)
+                return translator.translate(with: result, query: searchPath)
             })
     }
     
