@@ -26,7 +26,7 @@ struct AIUFileUseCase {
         return AIUFileListDataStore(searchPath: searchPath)
             .request()
             .flatMap({ result -> Observable<[AIUFilePathDataModel]> in
-                return translator.translate(with: result, query: searchPath)
+                return .just(translator.translate(with: result, query: searchPath))
             })
     }
     
@@ -52,22 +52,6 @@ struct AIUFileUseCase {
     /// - Returns: Int ファイルの総数
     func count(with searchPath: String?) -> Observable<Int> {
         return AIUFileCountDataStore(searchPath: searchPath).request()
-    }
-    
-}
-
-private extension AIUFileUseCase {
-    
-    func syncFileList(with searchPath: String?) -> [AIUFilePathDataModel] {
-        let semaphore = DispatchSemaphore(value: 0)
-        var result = [AIUFilePathDataModel]()
-        fileList(with: searchPath).subscribe(onNext: {value in
-            result = value
-            semaphore.signal()
-        }).disposed(by: disposeBag)
-        
-        semaphore.wait()
-        return result
     }
     
 }
