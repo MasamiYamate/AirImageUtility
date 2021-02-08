@@ -24,7 +24,7 @@ open class AirImageUtility: NSObject {
         /// ファイルリストを取得します
         /// - Parameter path: 検索したいファイルのパス
         /// - Parameter callback: ファイルリスト
-        open func list (with path: String?, callback: ((Result<[AIUFilePathDataModel], Error>) -> Void)?) {
+        open func list (with path: String = "/", callback: ((Result<[AIUFilePathDataModel], Error>) -> Void)?) {
             let fileList = AIUFileUseCase().fileList(with: path)
             fileList.subscribe(onNext: { value in
                 callback?(.success(value))
